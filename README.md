@@ -23,11 +23,13 @@ DLAW9 was developed by Urban Insight in partnership with Kansas Legal Services, 
    2. Until then, https://dlaw9-dist.lndo.site will show "Page not found".
    3. It will save as node #1. Enrich the home page by adding paragraph components.
 7. Visit the site at `https://dlaw9-dist.lndo.site`
+8. DLAW dashboard and settings can be accessed from the top dropdown menu 'Dashboard'
 
 **If you are installing the site without Lando, a bit of Drupal installation experience should do. You'll need to setup Solr server on your own.**
 
 
 ## Set Google Analytics Web Property ID in settings.php
+After configuring Google Analytics, the DLAW dashboard will show statistics.
 ```
 // Override Google Analytics Web Property
 $config['google_analytics.settings']['account'] = 'UA-12345678-1';
