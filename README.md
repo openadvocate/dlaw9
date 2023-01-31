@@ -1,11 +1,11 @@
 # DLAW (Drupal for Legal Aid Websites)
 
-DLAW is a Drupal distribution for building legal aid public information websites. DLAW is developed and maintained by Urban Insight, Inc. (http://urbaninsight.com). Development of the DLAW has been supported by Legal Service Corporation (LSC) Technology Initiative Grants. For more information see http://openadvocate.org
+DLAW is a Drupal distribution for building legal aid public information websites. DLAW is developed and maintained by Urban Insight, Inc. (http://urbaninsight.com). Development of the DLAW has been supported by Legal Service Corporation (LSC) Technology Initiative Grants. For more information see https://www.openadvocate.org
 
 ## DLAW 9 release
 DLAW version 9 was built with Drupal 9. The upgrade includes visual theme refreshments, greater control over homepage layout, adoption of new legal aid standards for schema.org, adoption of WCAG 2.1 accessibility standards, and adoption of the new NSMI taxonomy.
 
-DLAW9 was developed by Urban Insight in partnership with Kansas Legal Services, with funding provided by the Legal Services Corporation. For a hosted and managed version of DLAW, please visit OpenAdvocate.org.
+DLAW9 was developed by Urban Insight in partnership with Kansas Legal Services, with funding provided by the Legal Services Corporation. For a hosted and managed version of DLAW, please visit https://www.openadvocate.org
 
 
 ## Lando support
