@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_polka_dot_option
+    - paragraphs.paragraphs_type.events_block
+id: paragraph.events_block.field_polka_dot_option
+field_name: field_polka_dot_option
+entity_type: paragraph
+bundle: events_block
+label: 'Polka Dot Option'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

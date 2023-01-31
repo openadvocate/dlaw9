@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - rate
+id: updown
+label: Up/Down
+value_type: points
+description: 'A simple up or down vote.'

@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Contains dlaw_report.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function dlaw_report_theme($existing, $type, $theme, $path) {
+  return [
+    'dlaw_report' => [
+      'template' => 'dlaw-report',
+      'path' => $path . '/templates',
+      'variables' => [],
+    ],
+    'dlaw_report_page_views' => [
+      'template' => 'dlaw-report-page-views',
+      'path' => $path . '/templates',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+  ];
+}
+
+function dlaw_report_preprocess_page(&$variables) {
+  $variables['#attached']['library'][] = 'dlaw_report/dlaw_report';
+}

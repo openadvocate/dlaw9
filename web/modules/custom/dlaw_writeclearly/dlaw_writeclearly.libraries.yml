@@ -1,0 +1,5 @@
+dlaw_writeclearly:
+  js:
+    js/writeclearly.js: {}
+  dependencies:
+    - core/jquery

@@ -1,0 +1,31 @@
+<div class="social-media-links">
+	{% if social_links.facebook or
+        social_links.instagram or
+        social_links.twitter or
+        social_links.youtube %}
+		<p>{{"Follow Us" | t}}</p>
+	{% endif %}
+	{% if social_links.facebook %}
+		<div class="social-media-links__link facebook">
+			<a href="{{social_links.facebook}}" target="_blank" aria-label="facebook">{{ source(directory ~ '/images/facebook.svg') }}</a>
+		</div>
+	{% endif %}
+
+	{% if social_links.instagram %}
+		<div class="social-media-links__link instagram">
+			<a href="{{social_links.instagram}}" target="_blank" aria-label="instagram">{{ source(directory ~ '/images/instagram.svg') }}</a>
+		</div>
+	{% endif %}
+
+	{% if social_links.twitter %}
+		<div class="social-media-links__link twitter">
+			<a href="{{social_links.twitter}}" target="_blank" aria-label="twitter">{{ source(directory ~ '/images/twitter.svg') }}</a>
+		</div>
+	{% endif %}
+
+	{% if social_links.youtube %}
+		<div class="social-media-links__link youtube">
+			<a href="{{social_links.youtube}}" target="_blank" aria-label="youtube">{{ source(directory ~ '/images/youtube.svg') }}</a>
+		</div>
+	{% endif %}
+</div>

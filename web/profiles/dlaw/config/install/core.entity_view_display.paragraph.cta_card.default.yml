@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cta_card.field_cta_card_body
+    - field.field.paragraph.cta_card.field_cta_card_link
+    - field.field.paragraph.cta_card.field_cta_card_title
+    - paragraphs.paragraphs_type.cta_card
+  module:
+    - link
+id: paragraph.cta_card.default
+targetEntityType: paragraph
+bundle: cta_card
+mode: default
+content:
+  field_cta_card_body:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_cta_card_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_cta_card_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  search_api_excerpt: true

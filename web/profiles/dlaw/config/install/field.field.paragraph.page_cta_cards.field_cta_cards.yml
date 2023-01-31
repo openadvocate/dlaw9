@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta_cards
+    - paragraphs.paragraphs_type.cta_card
+    - paragraphs.paragraphs_type.page_cta_cards
+  module:
+    - entity_reference_revisions
+id: paragraph.page_cta_cards.field_cta_cards
+field_name: field_cta_cards
+entity_type: paragraph
+bundle: page_cta_cards
+label: 'CTA Cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      cta_card: cta_card
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_row:
+        weight: 22
+        enabled: false
+      accordions:
+        weight: 21
+        enabled: false
+      banner_cta:
+        weight: 23
+        enabled: false
+      banner_image:
+        weight: 24
+        enabled: false
+      column:
+        weight: 25
+        enabled: false
+      columns_layout:
+        weight: 26
+        enabled: false
+      cta_card:
+        weight: 27
+        enabled: true
+      events_block:
+        weight: 28
+        enabled: false
+      hero:
+        weight: 29
+        enabled: false
+      hero_topic_cards:
+        weight: 30
+        enabled: false
+      image_with_text:
+        weight: 31
+        enabled: false
+      news_block:
+        weight: 32
+        enabled: false
+      page_cta_cards:
+        weight: 33
+        enabled: false
+      supporters:
+        weight: 34
+        enabled: false
+      testimonial:
+        weight: 35
+        enabled: false
+      testimonials:
+        weight: 36
+        enabled: false
+      topic:
+        weight: 37
+        enabled: false
+      topic_cards:
+        weight: 39
+        enabled: false
+      topics:
+        weight: 38
+        enabled: false
+      twitter_feed_block:
+        weight: 40
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,6 @@
+services:
+  dlaw_twig_extension.twig_extension:
+    class: Drupal\dlaw_twig_extension\DlawTwigExtension
+    arguments: ['@module_handler', '@theme.manager']
+    tags:
+      - { name: twig.extension }

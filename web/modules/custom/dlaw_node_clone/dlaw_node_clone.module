@@ -1,0 +1,19 @@
+<?php
+
+use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
+
+/**
+ * @file
+ * Contains dlaw_node_clone.module.
+ */
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ */
+function dlaw_node_clone_menu_local_tasks_alter(&$data, $route_name, RefinableCacheableDependencyInterface &$cacheability) {
+  // Change the tab string from 'Clone' to 'Make a copy'.
+  if (isset($data['tabs'][0]['quick_node_clone.node.quick_clone'])) {
+    $data['tabs'][0]['quick_node_clone.node.quick_clone']['#link']['title'] = 'Make a copy';
+  }
+}

@@ -1,0 +1,70 @@
+<h2 class="ga_list_title last_seven">
+  <i class="fa fa-tachometer"></i> Site Usage (last 30 days)
+</h2>
+
+<div class="item-list">
+  <ul class="ga_site_usage_list clearfix">
+    <li class="first">
+      <div class="change_container">
+        <div class="ga-label">Visits{#  <br> #}</div>
+        <div class="clearfix cgange_holder">
+          <span class="ga-value">{{ site_usage.sessions.count }}</span>
+          <span class="ga-percent ga-change-{{ site_usage.sessions.change > 0 ? 'up' : 'down' }}">{{ site_usage.sessions.change }}%</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="change_container">
+        <div class="ga-label">Unique Visitors <br></div>
+        <div class="clearfix cgange_holder">
+          <span class="ga-value">{{ site_usage.users.count }}</span>
+          <span class="ga-percent ga-change-{{ site_usage.users.change > 0 ? 'up' : 'down' }}">{{ site_usage.users.change }}%</span>
+        </div>
+      </div>
+    </li>
+    <li class="last">
+      <div class="change_container">
+        <div class="ga-label">Pages/Visit <br></div>
+        <div class="clearfix cgange_holder">
+          <span class="ga-value">{{ site_usage.page_visit.count }}</span>
+          <span class="ga-percent ga-change-{{ site_usage.page_visit.change > 0 ? 'up' : 'down' }}">{{ site_usage.page_visit.change }}%</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<h2 class="ga_list_title last_30">
+  <i class="fa fa-bar-chart-o"></i> Page Views in the last 30 days
+</h2>
+
+<br>
+<canvas id="canvas-user-activity" width="400" height="120" style="display: block; width: 400px; height: 120px;"></canvas>
+
+<script>
+  var canvas = document.getElementById('canvas-user-activity');
+  var context = canvas.getContext('2d');
+  context.rect(0, 0, canvas.width, canvas.height);
+
+  new Chart("canvas-user-activity", {
+    type: 'line',
+    data: {
+      labels: [{{ page_views.labels }}],
+      datasets: [
+        {
+          label: "Page views",
+          fill: 'origin',
+          lineTension: 0,
+          backgroundColor: "rgba(80, 183, 217, 0.3)",
+          borderColor: '#4DB8DB',
+          data: [{{ page_views.values }}]
+        }
+      ]
+    },
+    options: {
+      legend:{
+        display: false
+      }
+    }
+  });
+</script>

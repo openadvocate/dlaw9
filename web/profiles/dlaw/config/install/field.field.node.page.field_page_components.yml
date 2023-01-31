@@ -1,0 +1,89 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_components
+    - node.type.page
+    - paragraphs.paragraphs_type.accordions
+    - paragraphs.paragraphs_type.page_cta_cards
+  module:
+    - entity_reference_revisions
+id: node.page.field_page_components
+field_name: field_page_components
+entity_type: node
+bundle: page
+label: Components
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordions: accordions
+      page_cta_cards: page_cta_cards
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_row:
+        weight: 20
+        enabled: false
+      accordions:
+        weight: 19
+        enabled: true
+      banner_cta:
+        weight: 21
+        enabled: false
+      banner_image:
+        weight: 22
+        enabled: false
+      column:
+        weight: 23
+        enabled: false
+      columns_layout:
+        weight: 24
+        enabled: false
+      cta_card:
+        weight: 27
+        enabled: false
+      events_block:
+        weight: 25
+        enabled: false
+      hero:
+        weight: 26
+        enabled: false
+      hero_topic_cards:
+        weight: 27
+        enabled: false
+      image_with_text:
+        weight: 28
+        enabled: false
+      news_block:
+        weight: 29
+        enabled: false
+      page_cta_cards:
+        weight: 33
+        enabled: true
+      supporters:
+        weight: 30
+        enabled: false
+      testimonial:
+        weight: 31
+        enabled: false
+      testimonials:
+        weight: 32
+        enabled: false
+      topic:
+        weight: 33
+        enabled: false
+      topic_cards:
+        weight: 35
+        enabled: false
+      topics:
+        weight: 34
+        enabled: false
+      twitter_feed_block:
+        weight: 36
+        enabled: false
+field_type: entity_reference_revisions

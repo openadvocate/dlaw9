@@ -1,0 +1,6 @@
+name: DLAW Blocks
+type: module
+package: DLAW
+description: Provided sitewide blocks.
+core_version_requirement: ^9
+version: "0.1.0"

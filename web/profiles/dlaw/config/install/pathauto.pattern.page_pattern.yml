@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: page_pattern
+label: 'Page pattern'
+type: 'canonical_entities:node'
+pattern: 'node/[node:nid]/[node:title]'
+selection_criteria:
+  d2099af0-3efe-46ed-9c79-a93ebb9495cd:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: d2099af0-3efe-46ed-9c79-a93ebb9495cd
+    context_mapping:
+      node: node
+    bundles:
+      contact: contact
+      page: page
+selection_logic: and
+weight: -5
+relationships: {  }

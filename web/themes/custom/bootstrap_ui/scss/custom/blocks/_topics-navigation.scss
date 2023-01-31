@@ -1,0 +1,50 @@
+.block-dlaw-topics-navigation {
+  width: 100%;
+
+  h2 {
+    border-bottom: 1px solid $primaryColour;
+    font-size: 1.185rem; //19px
+    padding-bottom: 1rem;
+
+    a {
+      color: $primaryBlack;
+      font-size: 1.185rem; //19px
+    }
+  }
+
+  ul {
+    background-color: transparent;
+    border: 0;
+    margin-bottom: 0;
+
+    a {
+      color: $primaryBlack;
+      padding-left: 1rem;
+
+      &.is-active {
+        border-left: 1px solid $primaryColour;
+        color: $primaryColour;
+        font-weight: 900;
+      }
+    }
+  }
+
+  .list-group-item {
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+
+    .list-group {
+      list-style: none;
+      padding-left: 0.625rem; //10px
+
+      li {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}

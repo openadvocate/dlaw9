@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies: {  }
+id: feedback
+label: Feedback
+template: custom
+value_type: option
+entity_types:
+  - node.page
+comment_types: {  }
+options:
+  -
+    value: '1'
+    label: 'Not helpful'
+    class: ''
+  -
+    value: '2'
+    label: 'Somewhat helpful'
+    class: ''
+  -
+    value: '3'
+    label: 'Very helpful'
+    class: ''
+voting:
+  use_deadline: 0
+  anonymous_window: -2
+  user_window: -2
+display:
+  display_label: 'How helpful do you find the information on this page?'
+  label_class: ''
+  label_position: above
+  description: ''
+  description_class: ''
+  description_position: below
+  readonly: 0
+results:
+  result_type: vote_hidden
+  result_position: hidden

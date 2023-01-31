@@ -1,0 +1,5 @@
+services:
+  dlaw_node.node_alias:
+    class: Drupal\dlaw_node\Service\NodeAlias
+    tags:
+      - { name: path_processor_inbound, priority: 200 }

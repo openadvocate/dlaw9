@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Contains dlaw_appearance.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function dlaw_appearance_theme($existing, $type, $theme, $path) {
+  return [
+    'appearance_home' => [
+      'variables' => [],
+    ],
+  ];
+}
+
+function dlaw_appearance_preprocess_page(&$variables) {
+  $variables['#attached']['library'][] = 'dlaw_appearance/dlaw_appearance';
+}

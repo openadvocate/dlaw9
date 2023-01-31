@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_list_code
+    - taxonomy.vocabulary.topics
+id: taxonomy_term.topics.field_list_code
+field_name: field_list_code
+entity_type: taxonomy_term
+bundle: topics
+label: 'LIST Code'
+description: 'Look up at https://nsmi.lsntap.org/browse-v2'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

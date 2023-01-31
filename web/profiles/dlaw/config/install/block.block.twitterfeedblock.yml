@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - dlaw_twitter_feed
+  theme:
+    - bootstrap_ui
+id: twitterfeedblock
+theme: bootstrap_ui
+region: hidden
+weight: 0
+provider: null
+plugin: dlaw_twitter_feed_block
+settings:
+  id: dlaw_twitter_feed_block
+  label: 'Twitter feed block'
+  label_display: visible
+  provider: dlaw_twitter_feed
+  number_of_tweets: '4'
+  username: test
+  twitter_url: 'https://twitter.com/test'
+  display_images: true
+  display_avatars: true
+visibility: {  }

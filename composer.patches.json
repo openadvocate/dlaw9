@@ -1,0 +1,14 @@
+{
+  "note": "If patches are local, put them at /patches/. They are local because the patch is not available online or the patch at online did not work.",
+  "patches": {
+    "drupal/rate": {
+      "Fix undefined index #type warning. It's really due to date_recur_modular but easier to fix here.": "patches/rate_fix-undefined-index-error.patch"
+    },
+    "drupal/redirect": {
+      "Enable wildcard redirect options": "https://www.drupal.org/files/issues/2021-10-18/support-for-wildcard-2831605-104.patch"
+    },
+    "drupal/google_analytics": {
+      "Allow multiple properties": "https://www.drupal.org/files/issues/2021-12-08/google_analytics-form_add_another_id_error.patch"
+    }
+  }
+}

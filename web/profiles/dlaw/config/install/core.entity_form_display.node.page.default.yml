@@ -1,0 +1,428 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.date_format.medium
+    - field.field.node.page.body
+    - field.field.node.page.field_attachments
+    - field.field.node.page.field_date
+    - field.field.node.page.field_featured_image
+    - field.field.node.page.field_featured_video
+    - field.field.node.page.field_featured_video_url
+    - field.field.node.page.field_feedback
+    - field.field.node.page.field_file_preview
+    - field.field.node.page.field_glossary
+    - field.field.node.page.field_language
+    - field.field.node.page.field_links
+    - field.field.node.page.field_location
+    - field.field.node.page.field_news
+    - field.field.node.page.field_page_components
+    - field.field.node.page.field_region
+    - field.field.node.page.field_section
+    - field.field.node.page.field_tags
+    - field.field.node.page.field_topics
+    - field.field.node.page.field_zipcode
+    - image.style.thumbnail
+    - node.type.page
+  module:
+    - comment
+    - date_recur_modular
+    - field_group
+    - file
+    - image
+    - link
+    - media_library
+    - paragraphs
+    - path
+    - scheduler
+    - text
+third_party_settings:
+  field_group:
+    group_featured_image:
+      children:
+        - field_featured_image
+        - field_featured_video_url
+        - field_featured_video
+      label: 'Featured Image/Video'
+      region: content
+      parent_name: ''
+      weight: 9
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: 'This image will be displayed as the featured image in search results, home page slides, and when this page is shared on Facebook or Twitter.'
+        required_fields: true
+        effect: none
+        formatter: closed
+        direction: vertical
+        width_breakpoint: 640
+    group_news:
+      children:
+        - field_news
+      label: News
+      region: content
+      parent_name: ''
+      weight: 10
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        effect: none
+        formatter: closed
+        direction: vertical
+        width_breakpoint: 640
+    group_event:
+      children:
+        - field_date
+        - field_location
+      label: Event
+      region: content
+      parent_name: ''
+      weight: 11
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: 'Add date to have the post appear in events list.'
+        required_fields: true
+    group_section:
+      children:
+        - field_section
+      label: 'Section (Child Pages)'
+      region: content
+      parent_name: ''
+      weight: 12
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: 'Create a section to group related pages. To make this page a section, add child pages. A child page can only belong to one section.'
+        required_fields: true
+    group_links:
+      children:
+        - field_links
+      label: Links
+      region: content
+      parent_name: ''
+      weight: 15
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_attachments:
+      children:
+        - field_file_preview
+        - field_attachments
+      label: Attachments
+      region: content
+      parent_name: ''
+      weight: 16
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_categories:
+      children:
+        - field_topics
+        - field_tags
+        - field_region
+        - field_zipcode
+        - field_language
+      label: Categories
+      region: content
+      parent_name: ''
+      weight: 13
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_glossary:
+      children:
+        - field_glossary
+      label: Glossary
+      region: content
+      parent_name: ''
+      weight: 14
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_search_promotion:
+      children:
+        - promote
+      label: 'Search Promotion'
+      region: content
+      parent_name: ''
+      weight: 17
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 6
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_attachments:
+    type: file_generic
+    weight: 22
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_date:
+    type: date_recur_modular_sierra
+    weight: 12
+    region: content
+    settings:
+      interpreter: ''
+      date_format_type: medium
+      occurrences_modal: true
+    third_party_settings: {  }
+  field_featured_image:
+    type: image_image
+    weight: 26
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_featured_video:
+    type: media_library_widget
+    weight: 28
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_featured_video_url:
+    type: link_default
+    weight: 27
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_feedback:
+    type: comment_default
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_file_preview:
+    type: boolean_checkbox
+    weight: 21
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_glossary:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_language:
+    type: options_select
+    weight: 25
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_links:
+    type: link_default
+    weight: 22
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_location:
+    type: string_textfield
+    weight: 13
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_news:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_page_components:
+    type: paragraphs
+    weight: 29
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_region:
+    type: options_select
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_section:
+    type: entity_reference_autocomplete
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tags:
+    type: options_select
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_topics:
+    type: options_select
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_zipcode:
+    type: options_select
+    weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

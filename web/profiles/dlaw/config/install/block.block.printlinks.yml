@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_print
+    - taxonomy
+  theme:
+    - bootstrap_ui
+id: printlinks
+theme: bootstrap_ui
+region: sidebar_second
+weight: -13
+provider: null
+plugin: print_links
+settings:
+  id: print_links
+  label: 'Print Links'
+  label_display: '0'
+  provider: entity_print
+  context_mapping:
+    entity: '@node.node_route_context:node'
+  pdf_enabled: true
+  pdf_link_text: 'View PDF'
+  epub_enabled: false
+  epub_link_text: 'View EPub'
+  word_docx_enabled: false
+  word_docx_link_text: 'View Word Document'
+visibility:
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      topics: topics

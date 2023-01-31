@@ -1,0 +1,72 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_topics
+    - paragraphs.paragraphs_type.hero_topic_cards
+    - paragraphs.paragraphs_type.topic
+  module:
+    - entity_reference_revisions
+id: paragraph.hero_topic_cards.field_hero_topics
+field_name: field_hero_topics
+entity_type: paragraph
+bundle: hero_topic_cards
+label: 'Topic Cards'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      topic: topic
+    negate: 0
+    target_bundles_drag_drop:
+      banner_cta:
+        weight: 16
+        enabled: false
+      banner_image:
+        weight: 17
+        enabled: false
+      column:
+        weight: 18
+        enabled: false
+      columns_layout:
+        weight: 19
+        enabled: false
+      events_block:
+        weight: 20
+        enabled: false
+      hero:
+        weight: 21
+        enabled: false
+      hero_topic_cards:
+        weight: 22
+        enabled: false
+      image_with_text:
+        weight: 23
+        enabled: false
+      news_block:
+        weight: 24
+        enabled: false
+      supporters:
+        weight: 25
+        enabled: false
+      testimonial:
+        weight: 26
+        enabled: false
+      testimonials:
+        weight: 27
+        enabled: false
+      topic:
+        weight: 28
+        enabled: true
+      topics:
+        weight: 29
+        enabled: false
+      twitter_feed_block:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

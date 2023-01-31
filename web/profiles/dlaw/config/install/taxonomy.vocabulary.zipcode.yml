@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Zip Code'
+vid: zipcode
+description: ''
+weight: 0

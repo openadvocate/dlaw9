@@ -1,0 +1,56 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * @file
+ * Promote pages in the site search.
+ */
+
+define('DLAW_PROMOTED_THRESHOLD', \Drupal::state()->get('dlaw_pomote_threshold', 10));
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function dlaw_search_promote_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (!in_array($form_id, ['node_page_form', 'node_page_edit_form'])) {
+    return;
+  }
+
+  $threshold = _dlaw_search_promote_count_over_threshold();
+
+  $form['group_search_promotion']['note'] = [
+    '#markup' => t('Promote content to appear higher up in the search results.<br>%promoted of %total (%ratio%) pages promoted. %threshold% of published pages can be promoted.', [
+      '%promoted' => $threshold['promoted'],
+      '%total' => $threshold['total'],
+      '%ratio' => $threshold['ratio'],
+      '%threshold' => DLAW_PROMOTED_THRESHOLD,
+    ]),
+  ];
+
+  // This module uses node's "promote" flag to mark promoted pages.
+  $form['promote']['widget']['value']['#title'] = t('Promote in search');
+  $form['promote']['#access'] = TRUE; // Allow editors to set who don't have permision otherwise.
+  $form['promote']['#disabled'] = empty($form['promote']['widget']['value']['#default_value']) && $threshold['ratio'] >= DLAW_PROMOTED_THRESHOLD ? TRUE : FALSE;
+}
+
+/**
+ * Helper to return promoted page count and ratio.
+ *
+ * @return array
+ */
+function _dlaw_search_promote_count_over_threshold() {
+  $query = \Drupal::database()->select('node_field_data', 'n');
+  $query->addExpression('COUNT(n.nid)', 'total');
+  $query->addExpression('COUNT(CASE WHEN promote = 1 THEN 1 END)', 'promoted');
+  $query->condition('type', 'page');
+  $query->condition('status', 1);
+
+  $count = $query->execute()->fetchObject();
+
+  return [
+    'total'    => $count->total,
+    'promoted' => $count->promoted,
+    'ratio' => round($count->promoted / $count->total * 100, 1),
+  ];
+}

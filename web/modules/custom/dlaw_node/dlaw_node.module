@@ -1,0 +1,43 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function dlaw_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, ['node_page_form', 'node_page_edit_form'])) {
+    // Disable HTML5 validation as HTML validate errors are not very visible.
+    $form['#attributes']['novalidate'] = 'novalidate';
+
+    // Attach Javascript to check length of the title and summary.
+    $form['#attached']['library'][] = 'dlaw_node/dlaw_node';
+  }
+
+  if (preg_match('#^node_[\w_]+_form$#', $form_id)) {
+    $form['#validate'][] = 'dlaw_node_form_validate';
+  }
+}
+
+function dlaw_node_form_validate(&$form, FormStateInterface $form_state) {
+  // Prevent using "/" in the title as it can cause issues.
+  if (strpos($form_state->getValue('title')[0]['value'] ?? '', '/') !== FALSE) {
+    $form_state->setErrorByName('title', t('Avoid using slash character "/" in the title.'));
+  }
+}
+
+/**
+ * Implements hook_node_update(). (hook_ENTITY_TYPE_update)
+ */
+function dlaw_node_node_update(NodeInterface $node) {
+  // Check if the same redirect exists as alias and remove it to avoid infinite loop.
+  if (\Drupal::hasService('redirect.repository')) {
+    $redirects = \Drupal::service('redirect.repository')->findBySourcePath(trim($node->toUrl()->toString(), '/'));
+
+    foreach ($redirects as $redirect) {
+      $redirect->delete();
+    }
+  }
+}

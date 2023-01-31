@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accdin_body
+    - paragraphs.paragraphs_type.accordion_row
+  module:
+    - text
+id: paragraph.accordion_row.field_accdin_body
+field_name: field_accdin_body
+entity_type: paragraph
+bundle: accordion_row
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

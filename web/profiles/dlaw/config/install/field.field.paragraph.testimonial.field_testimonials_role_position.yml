@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_testimonials_role_position
+    - paragraphs.paragraphs_type.testimonial
+id: paragraph.testimonial.field_testimonials_role_position
+field_name: field_testimonials_role_position
+entity_type: paragraph
+bundle: testimonial
+label: Role/Position
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

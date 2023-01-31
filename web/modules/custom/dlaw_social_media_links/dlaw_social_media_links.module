@@ -1,0 +1,20 @@
+<?php
+/**
+ * @file
+ * Code for the Social Media Links.
+ */
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function dlaw_social_media_links_theme($existing, $type, $theme, $path) {
+  return [
+    'social_media_links_block' => [
+      'variables' => [
+        'social_links' => []
+      ],
+    ]
+  ];
+}
+

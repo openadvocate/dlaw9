@@ -1,0 +1,6 @@
+services:
+  dlaw_topics.topics_alias:
+    class: Drupal\dlaw_topics\Service\TopicsAlias
+    tags:
+      - { name: path_processor_inbound, priority: 101 }
+      - { name: path_processor_outbound, priority: 301 }

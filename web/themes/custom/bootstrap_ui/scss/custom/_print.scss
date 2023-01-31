@@ -1,0 +1,60 @@
+@media print {
+  header,
+  footer {
+    display: none;
+  }
+
+  h1,
+  .h1 {
+    font-size: 1.6875rem; //27px
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  h2,
+  .h2 {
+    font-size: 1.6875rem; //27px
+    line-height: 1;
+  }
+
+  h3,
+  .h3 {
+    font-size: 1.6875rem; //27px
+    line-height: 1;
+  }
+
+  h4,
+  .h4 {
+    font-size: 1.6875rem; //27px
+    line-height: 1;
+  }
+
+  h5,
+  .h5 {
+    font-size: 1.6875rem; //27px
+    line-height: 1;
+  }
+
+  h6,
+  .h6 {
+    font-size: 1.25rem; //20px
+    line-height: 1;
+  }
+
+  .sidebar-btn,
+  .toc__header,
+  .toc__content,
+  .block-dlaw-section-directory {
+    display: none !important;
+  }
+
+  .page__body {
+    iframe {
+      display: none !important;
+    }
+  }
+
+  .slick-list.draggable {
+    margin-bottom: 2rem;
+  }
+}

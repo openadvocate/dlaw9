@@ -1,0 +1,224 @@
+<?php
+
+/**
+ * @file
+ * Contains dlaw_dashboard.module.
+ */
+
+use Drupal\Core\File\Exception\FileException;
+use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\StreamWrapper\StreamWrapperManager;
+use Symfony\Component\Mime\MimeTypeGuesserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function dlaw_dashboard_theme($existing, $type, $theme, $path) {
+  return [
+    'dashboard_home' => [
+      'template' => 'dlaw-dashboard-home',
+      'path' => $path . '/templates',
+      'variables' => [],
+    ],
+    'dlaw_dashboard_page_views' => [
+      'variables' => [
+        'site_usage' => [],
+        'page_views' => [],
+      ]
+    ],
+    'dlaw_dashboard_search_stats' => [
+      'variables' => [
+        'search_count' => [],
+        'search_1day' => [],
+        'search_30days' => [],
+      ]
+    ],
+    'dlaw_dashboard_site_summary' => [
+      'variables' => [
+        'data' => [],
+      ]
+    ],
+    'dlaw_dashboard_popular_pages' => [
+      'variables' => [
+        'pages' => [],
+      ]
+    ],
+  ];
+}
+
+function dlaw_dashboard_preprocess_page(&$variables) {
+  $variables['#attached']['library'][] = 'dlaw_dashboard/dlaw_dashboard';
+}
+
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Hide some form elements on menu item edit page.
+ */
+function dlaw_dashboard_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, ['menu_link_edit', 'menu_link_content_menu_link_content_form'])) {
+    if (\Drupal::currentUser()->id() != 1) {
+      $form['description']['#access'] =
+      $form['expanded']['#access']    =
+      $form['weight']['#access']      = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dlaw_dashboard_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Refine the widget size on /admin/content
+  if ($form['#id'] == "views-exposed-form-content-page-1") {
+    $form['search']['#size'] = 20;
+    $form['author']['#size'] = 15;
+    $form['author']['#description'] = NULL;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dlaw_dashboard_form_taxonomy_term_topics_form_alter(&$form, FormStateInterface $form_state) {
+
+  // Icon field for Topics.
+  $icons = '';
+  if ($list = dlaw_dashboard_get_category_icon_list()) {
+    foreach ($list as $url) {
+      $caption = '';
+      if (preg_match('#/([^/]+)\.png$#', $url, $match)) {
+        $caption = $match[1];
+        $caption = str_replace('-', ' ', $caption);
+        $caption = ucfirst($caption);
+      }
+      $icons .= <<<OUT
+        <div class="topics-icon__options">
+          <img src="{$url}" width="50" />
+          {$caption}
+        </div>
+      OUT;
+    }
+  }
+
+  $form['field_icon_url']['#suffix'] = <<<OUT
+    <div class="category-icon-list">
+      <h3>Choose from popular icons:</h3>
+      <div class="category-icon-list-wrapper">
+        {$icons}
+      </div>
+    </div>
+    <div class="category-icon-instruction">
+      <legend>Or find an icon yourself at icons8.com:</legend>
+      <ol>
+        <li>Go to <a href="https://icons8.com/icon/new-icons/ios" target="_blank">https://icons8.com/icon/new-icons/ios</a></li>
+        <li>Search with keywords.</li>
+        <li>Click on the icon and choose "iOS" style of the icon.</li>
+        <li>Click “Donwload” button.</li>
+        <li>Choose Formats: Link (CDN).</li>
+        <li>Choose 100x100 size.</li>
+        <li>Click “Copy HTML”.</li>
+        <li>Paste to the textbox above and edit to keep only the image URL (src).
+          <ul>
+            <li>The URL should look something like https://img.icons8.com/ios/100/000000/house.png</li>
+            <li>Note the image URL indicates iOS style and filled.</li>
+          </ul>
+      </ol>
+    </div>
+  OUT;
+
+  $form['#attached']['library'][] = 'dlaw_dashboard/dlaw_topics_icons';
+  $form['#validate'][] = 'dlaw_dashboard_form_taxonomy_term_topics_form_validate';
+}
+
+function dlaw_dashboard_form_taxonomy_term_topics_form_validate(&$form, FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+
+  if (!empty($values['field_icon_url'][0]['value'])) {
+    $url = $values['field_icon_url'][0]['value'];
+
+    if (preg_match('#src="([^"]+)"#', $url, $match)) {
+      $url = $match[1];
+    }
+
+    if (!preg_match('#^https:\/\/.+icons8.com\/ios\/.+\.png$#', $url)) {
+        $form_state->setErrorByName('field_icon_url', 'The icon URL should be from icons8.com. e.g.) https://img.icons8.com/ios/100/000000/traffic-light.png<br>icons8.com icon URL has changed. If the icon URL is old and you get an error saving this page, choose the icon from popular icons list again.');
+      return;
+    }
+
+    // Use 100px version of image.
+    $url = preg_replace('#.com\/ios\/\d+\/#', '.com/ios/100/', $url);
+    // $result = drupal_http_request($url, array(), 'HEAD');
+    try {
+      $result = \Drupal::httpClient()->get($url, [
+        'headers' => [
+        ]
+      ]);
+    } catch (RequestException $e) {
+      watchdog_exception('dlaw_dashboard', $e);
+    }
+
+    // kint($result->getStatusCode());
+    // die();
+
+    if ($result->getStatusCode() == 200) {
+      $values['field_icon_url'][0]['value'] = $url;
+      // dlaw_dashboard_set_category_icon_list($url);
+      // drupal_set_message("<img src=\"{$url}\" height=\"50\" width=\"50\" style=\"opacity:0.5; filter:alpha(opacity=50)\"> This icon will be used for the term.");
+      \Drupal::messenger()->addMessage("<img src=\"{$url}\" height=\"50\" width=\"50\" style=\"opacity:0.5; filter:alpha(opacity=50)\"> This icon will be used for the term.");
+    }
+    else {
+      // form_set_error('field_icon_url', 'The icon URL is not valid. Please check again.');
+      $form_state->setErrorByName('field_icon_url', 'The icon URL is not valid. Please check again.');
+    }
+  }
+}
+
+function dlaw_dashboard_get_category_icon_list() {
+  $shared_files_dir = 'sites/default/files';
+
+  // file_prepare_directory($shared_files_dir, FILE_CREATE_DIRECTORY);
+  try {
+    \Drupal::service('file_system')->prepareDirectory($shared_files_dir, FileSystemInterface::CREATE_DIRECTORY);
+  } catch (\Drupal\Core\File\Exception\FileException $e) {
+    watchdog_exception('dlaw_dashboard', $e);
+  }
+
+  $path = $shared_files_dir . '/_category-icon-list-cache.txt';
+
+  $list = array();
+  if ($abs_path = realpath($path)) {
+    $list = file($abs_path, FILE_IGNORE_NEW_LINES);
+  }
+
+  return $list;
+}
+
+function dlaw_dashboard_set_category_icon_list($url) {
+  $list = dlaw_dashboard_get_category_icon_list();
+
+  if (!in_array($url, $list)) {
+    $list[] = $url;
+    array_filter($list);
+
+    // file_unmanaged_save_data(
+    //   join("\n", $list),
+    //   'sites/default/files/_category-icon-list-cache.txt',
+    //   FILE_EXISTS_REPLACE
+    // );
+    try {
+      \Drupal::service('file_system')->saveData(
+        join("\n", $list),
+        'sites/default/files/_category-icon-list-cache.txt',
+        FileSystemInterface::EXISTS_REPLACE
+      );
+    } catch (\Drupal\Core\File\Exception\FileException $e) {
+      watchdog_exception('dlaw_dashboard', $e);
+    }
+
+  }
+}

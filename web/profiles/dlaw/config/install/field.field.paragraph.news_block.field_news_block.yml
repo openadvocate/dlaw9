@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block.block.views_block__news_block_news
+    - field.storage.paragraph.field_news_block
+    - paragraphs.paragraphs_type.news_block
+id: paragraph.news_block.field_news_block
+field_name: field_news_block
+entity_type: paragraph
+bundle: news_block
+label: 'News Block'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: c3f312e4-30d9-47cd-ae2f-a4dc24489931
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

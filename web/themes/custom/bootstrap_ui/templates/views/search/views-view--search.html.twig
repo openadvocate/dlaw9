@@ -1,0 +1,119 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A css-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   Javascript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+{%
+  set classes = [
+    'view',
+    'view-' ~ id|clean_class,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'view__page',
+    'search-page'
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {{ title_suffix }}
+    <div class="view-filters">
+      <div class="page-content__top">
+        <h1>{{"Search" | t}}</h1>
+        {{ drupal_block('views_exposed_filter_block:search-search') }}
+      </div>
+    </div>
+  {% if attachment_before %}
+    <div class="attachment attachment-before">
+      {{ attachment_before }}
+    </div>
+  {% endif %}
+
+  {% if rows %}
+    <div class="search-page__wrapper">
+      <div class="filter-wrapper">
+        <div data-myfeature data-once="facet-filter-hamburger" class="facet-filter-hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <p>Filter your results</p>
+      </div>
+      <div class="view-content search-page__lhs">
+        {% if header %}
+          <div class="view-header">
+            {{ header }}
+          </div>
+        {% endif %}
+
+        {{ rows }}
+
+        {% if pager %}
+          {{ pager }}
+        {% endif %}
+      </div>
+      <div class="search-page__rhs">
+        {{drupal_entity('block', 'search_facets_block')}}
+      </div>
+    </div>
+  {% elseif empty %}
+    <div class="view-empty">
+      {{ empty }}
+    </div>
+  {% endif %}
+
+  {% if attachment_after %}
+    <div class="attachment attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+  {% if more %}
+    {{ more }}
+  {% endif %}
+  {% if footer %}
+    <div class="view-footer">
+      {{ footer }}
+    </div>
+  {% endif %}
+  {% if feed_icons %}
+    <div class="feed-icons">
+      {{ feed_icons }}
+    </div>
+  {% endif %}
+</div>
+
+{{ drupal_block('dlaw_blocks_testimonials') }}
+{{ drupal_entity('block', 'twitterfeedblock') }}
+{{ drupal_block('dlaw_blocks_supporters') }}
+
+

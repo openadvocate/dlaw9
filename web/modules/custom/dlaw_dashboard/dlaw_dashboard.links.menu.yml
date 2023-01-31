@@ -1,0 +1,57 @@
+dlaw_dashboard:
+  title: Dashboard
+  description: 'DLAW Dashboard.'
+  route_name: dlaw_dashboard
+  parent: system.admin
+  weight: -99
+
+dlaw_dashboard.admin_content:
+  title: Content
+  description: 'Find and manage content.'
+  route_name: system.admin_content
+  parent: dlaw_dashboard
+  # weight: -10
+
+dlaw_dashboard.settings:
+  title: Site Settings
+  description: 'DLAW site settings.'
+  route_name: dlaw_dashboard.site_info
+  parent: dlaw_dashboard
+
+dlaw_dashboard.settings.site_info:
+  title: Site Information
+  description: 'Site Information.'
+  route_name: dlaw_dashboard.site_info
+  parent: dlaw_dashboard.settings
+
+dlaw_dashboard.settings.menu:
+  title: Menus
+  description: 'Site menus.'
+  route_name: entity.menu.collection
+  parent: dlaw_dashboard.settings
+
+dlaw_dashboard.settings.category:
+  title: Categories
+  description: 'Categories.'
+  route_name: entity.taxonomy_vocabulary.collection
+  parent: dlaw_dashboard.settings
+
+dlaw_dashboard.settings.gtranslate:
+  title: GTranslate
+  description: 'GTranslate.'
+  route_name: gtranslate.settings
+  parent: dlaw_dashboard.settings
+
+dlaw_dashboard.user:
+  title: Users
+  description: 'Find and manage users.'
+  route_name: entity.user.collection
+  parent: dlaw_dashboard
+
+dlaw_dashboard.flush:
+  title: Clear Site Caches
+  description: 'Clear all site caches.'
+  route_name: dlaw_dashboard.flush
+  parent: dlaw_dashboard
+  weight: 10
+

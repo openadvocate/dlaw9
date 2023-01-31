@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.contact
+    - node.type.page
+  module:
+    - comment
+    - node
+    - path
+    - quick_node_clone
+    - redirect
+    - system
+    - toolbar
+id: editor
+label: Editor
+weight: 4
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'administer comments'
+  - 'administer redirects'
+  - 'clone page content'
+  - 'create contact content'
+  - 'create page content'
+  - 'create url aliases'
+  - 'delete any contact content'
+  - 'delete any page content'
+  - 'delete contact revisions'
+  - 'delete own contact content'
+  - 'delete own page content'
+  - 'delete page revisions'
+  - 'edit any contact content'
+  - 'edit any page content'
+  - 'edit own comments'
+  - 'edit own contact content'
+  - 'edit own page content'
+  - 'revert contact revisions'
+  - 'revert page revisions'
+  - 'view contact revisions'
+  - 'view page revisions'
+  - 'view the administration theme'

@@ -1,0 +1,100 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+
+
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+
+  {% set header = row.content["#row"]._entity.fields.title.value %}
+  {% set address = row.content["#row"]._entity.fields.field_contact_address.value.0 %}
+  {% set phone = row.content["#row"]._entity.fields.field_contact_phone.value %}
+  {% set website = row.content["#row"]._entity.fields.field_contact_website[0].value.uri %}
+  {% set categories = row.content["#row"]._entity.fields.field_category %}
+  {% set counties = row.content["#row"]._entity.fields.field_tags %}
+
+
+  <div{{ row.attributes.addClass(row_classes) }}>
+    <div class="table__header">
+      <a href="{{ path('entity.node.canonical', {'node': row.content["#row"]._entity.fields.nid.value}) }}">{{ header }}</a>
+      <p></p>
+    </div>
+
+    <div class="table__content">
+      {% if address.address_line1 %}
+        <div class="table__content-contact col-md-8 col-sm-12">
+          <p class="address">{{address.address_line1 | trim(' ', 'right')}}
+            {% if address.address_line2 %}
+              <span>{{', ' ~ address.address_line2}}</span>
+            {% endif %}
+
+            {% if address.locality %}
+              <span>{{', ' ~ address.locality}}</span>
+            {% endif %}
+
+            {% if address.administrative_area %}
+              <span>{{', ' ~ address.administrative_area}}</span>
+            {% endif %}
+
+            {% if address.postal_code %}
+              <span>{{', ' ~ address.postal_code}}</span>
+            {% endif %}
+          </p>
+
+          {% if phone %}
+            <a class="phone" href={{"tel:" ~ phone}}>{{phone}}</a>
+          {% endif %}
+
+          {% if website %}
+            <a class="website" href={{website}} target="_blank" rel="noreferrer nofollow">{{ website }}</a>
+          {% endif %}
+        </div>
+      {% endif %}
+
+
+      <div class="table__side col-md-4 col-sm-12">
+        {% if categories.0 %}
+          <div class="table__side-item">
+            <p>{{ 'Categories' | t }}</p>
+            {% for cat in categories %}
+              <a href={{path('entity.taxonomy_term.canonical', {'taxonomy_term': cat.value.target_id})}}>{{cat.entity.name.value}}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if counties.0 %}
+          <div class="table__side-item">
+            <p>{{ 'Counties' | t }}</p>
+            {% for count in counties %}
+              <a href={{path('entity.taxonomy_term.canonical', {'taxonomy_term': count.value.target_id})}}>{{count.entity.name.value}}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+{% endfor %}
+

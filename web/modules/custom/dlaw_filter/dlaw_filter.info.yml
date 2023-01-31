@@ -1,0 +1,6 @@
+name: DLAW Filter
+type: module
+description: 'Custom input filters.'
+core_version_requirement: ^9
+package: DLAW
+version: '0.1.0'

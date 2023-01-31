@@ -1,0 +1,21 @@
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: ''
+  url: ''
+  use_default: true
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: ''
+  url: ''
+  use_default: true
+site_name: 'Test Legal Services'
+site_slogan: 'A non-profit law firm and community organization helping low and moderate income people in Test State'
+site_mail: test@example.com
+site_frontpage: /node/1
+logotype: TEST
+copyright: '&copy; [year] Test Legal Services'
+display_updated: 1

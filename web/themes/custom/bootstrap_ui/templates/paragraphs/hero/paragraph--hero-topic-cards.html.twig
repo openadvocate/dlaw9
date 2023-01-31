@@ -1,0 +1,118 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set title = paragraph.field_hero_title.value %}
+{% set subtitle = paragraph.field_hero_body.value %}
+{% set searchTitle = paragraph.field_hero_search_title.value %}
+{% set img = paragraph.field_hero_tc_image.entity.field_media_image.entity.uri.value %}
+{% set alt = paragraph.field_hero_tc_image.entity.field_media_image.alt %}
+{% set topics = paragraph.field_hero_topics %}
+{% if img %}
+  {% set layout = "bg__img" %}
+{% else %}
+  {% set layout = "no__img" %}
+{% endif %}
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    layout == "no__img" ? "no__img",
+    "bg",
+    content.field_hero_topics['#items'] ? 'has__topics' : "no__topics",
+  ]
+%}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+
+      <div class="hero__container-bg"
+        {% if img %}
+          style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.59), rgba(0, 0, 0, 0.59)), url({{ file_url(img) }})"
+          aria-label="{{alt}}"
+        {% endif %}
+      >
+        <div class="hero__content">
+          <h1 class="heading">{{ title }}</h1>
+
+          <p class="hero__desc">{{ subtitle }}</p>
+
+          {% if layout == "bg__img" %}
+            <div class="hero-topics__search-component-bg">
+              {% if searchTitle %}
+                <h4>{{searchTitle}}</h4>
+              {% endif %}
+
+              <div class="hero__search-wrapper">
+                {{ drupal_block('views_exposed_filter_block:search-search') }}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+      </div>
+
+      {% if layout == "no__img" %}
+        <div class="hero-topics__search-component">
+          {% if searchTitle %}
+            <h4>{{searchTitle}}</h4>
+          {% endif %}
+
+          <div class="hero__search-wrapper">
+            {{ drupal_block('views_exposed_filter_block:search-search') }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if content.field_hero_topics['#items'] %}
+        <div class="hero__topics-container">
+          <div class="hero__topics">
+            {{content.field_hero_topics}}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

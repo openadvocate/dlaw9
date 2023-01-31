@@ -1,0 +1,6 @@
+name: DLAW Social Media Links
+type: module
+package: DLAW
+description: "Enables Social Media Links block."
+core_version_requirement: ^9
+version: "0.1.0"

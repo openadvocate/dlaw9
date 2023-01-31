@@ -1,0 +1,11 @@
+dlaw_dashboard.seo:
+  title: SEO
+  description: SEO settings
+  route_name: dlaw_seo.report
+  parent: dlaw_dashboard
+
+dlaw_dashboard.seo.report:
+  title: Report
+  description: SEO Report
+  route_name: dlaw_seo.report
+  parent: dlaw_dashboard.seo

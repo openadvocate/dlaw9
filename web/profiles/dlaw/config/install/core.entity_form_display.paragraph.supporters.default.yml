@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.supporters.field_supporters_logos
+    - field.field.paragraph.supporters.field_supporters_subtitle
+    - paragraphs.paragraphs_type.supporters
+  module:
+    - media_library
+id: paragraph.supporters.default
+targetEntityType: paragraph
+bundle: supporters
+mode: default
+content:
+  field_supporters_logos:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_supporters_subtitle:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

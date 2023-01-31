@@ -1,0 +1,71 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+<div class="news__block-container">
+  <div class="news__block-intro">
+    <p class="news__block-subtitle">{{"NEWS" | t}}</p>
+    <h4>{{"News & publications" | t}}</h4>
+
+    <a href="/news" class="default__btn">{{"More News" | t}}</a>
+  </div>
+
+  <div class="news__block-cards-wrapper">
+    {% for key, row in rows %}
+
+      {% set uri = row.content['#row']._entity.field_featured_image.entity.uri.value %}
+      {% set alt = row.content['#row']._entity.field_featured_image.alt %}
+      {% set title = row.content['#row']._entity.title.value %}
+      {% set summary = row.content['#row']._entity.body.summary %}
+      {% set body = row.content['#row']._entity.body.value %}
+      {% set date = row.content['#row']._entity.created.value %}
+
+
+      <div class="news__block-cards">
+        <div class="events__block-date">
+          <p>{{date | date("j M Y")}}</p>
+        </div>
+
+        {% if uri %}
+          <img
+            class="lozad news__block-image"
+            src="{{ uri | image_style('small') }}"
+            alt="{{ alt }}"
+            width="356"
+            height="196"
+          />
+        {% endif %}
+
+        <div class="news__block-content">
+          <p class="news__block-title">{{title}}</p>
+
+          {% if summary %}
+            <p class="news__block-body summary">{{ summary | striptags | raw }}</p>
+          {% else %}
+            {% if body %}
+              <p class="news__block-body">{{ body | striptags | truncate(80, true, "...") | raw }}</p>
+            {% endif %}
+          {% endif %}
+
+          <a class="news__block-link default__btn" href="{{ path('entity.node.canonical', {'node': row.content['#row']._entity.nid.value}) }}">{{"Continue Reading" | t}}</a>
+        </div>
+
+      </div>
+
+    {% endfor %}
+  </div>
+</div>

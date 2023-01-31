@@ -1,0 +1,3 @@
+dlaw_node:
+  js:
+    js/dlaw_node.js: { }

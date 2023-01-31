@@ -1,0 +1,102 @@
+<?php
+
+use Drupal\Core\Render\BubbleableMetadata;
+
+/**
+ * Implements hook_token_info().
+ */
+function dlaw_schemaorg_token_info() {
+  return [
+    'types' => [
+      'dlaw' => [
+        'name' => t('DLAW'),
+        'description' => t('Custom DLAW tokens.'),
+      ],
+    ],
+    'tokens' => [
+      'dlaw' => [
+        'social-media' => [
+          'name' => 'Social media',
+        ],
+        'site-logo' => [
+          'name' => 'Site logo',
+        ],
+        'keywords' => [
+          'name' => 'Keywords',
+        ]
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function  dlaw_schemaorg_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  if ($type == 'dlaw') {
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'social-media':
+          $replacements[$original] = _dlaw_schemaorg_get_site_social_media();
+          break;
+
+        case 'site-logo':
+          $replacements[$original] = \Drupal::service('file_url_generator')->generateAbsoluteString(theme_get_setting('logo.path'));
+          break;
+
+        case 'keywords':
+          $node = $data['node'];
+
+          $keywords = [];
+
+          foreach (['field_topics', 'field_tags'] as $field ) {
+            foreach ($node->$field->referencedEntities() as $term) {
+              $keywords[] = $term->label();
+
+              if ($nsmi_codes = !empty($term->field_nsmi_code) ? $term->field_nsmi_code->getValue() : NULL) {
+                foreach ($nsmi_codes as $nsmi_code) {
+                  $keywords[] = $nsmi_code['value'] . ' (NSMI v1)';
+                }
+              }
+
+              if ($list_codes = !empty($term->field_list_code) ? $term->field_list_code->getValue() : NULL) {
+                foreach ($list_codes as $list_code) {
+                  $keywords[] = $list_code['value'] . ' (NSMI v2)';
+                }
+              }
+            }
+          }
+
+          $replacements[$original] = join(', ', $keywords);
+          break;
+      }
+    }
+  }
+
+  return $replacements;
+}
+
+function _dlaw_schemaorg_get_site_social_media() {
+  $sns_links = [
+    'dlaw_social_media_links_twitter_url',
+    'dlaw_social_media_links_facebook_url',
+    'dlaw_social_media_links_youtube_url',
+    'dlaw_social_media_links_vimeo_url',
+    'dlaw_social_media_links_flickr_url',
+    'dlaw_social_media_links_linkedin_url',
+    'dlaw_social_media_links_instagram_url',
+    'dlaw_social_media_links_pinterest_url',
+  ];
+
+  $social_media = [];
+
+  foreach ($sns_links as $link) {
+    if ($url = \Drupal::state()->get($link, '')) {
+      $social_media[] = $url;
+    }
+  }
+
+  return join(', ', $social_media);
+}

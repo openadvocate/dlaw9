@@ -1,0 +1,111 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.audio
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - node.type.contact
+    - node.type.landing_page
+    - node.type.page
+    - taxonomy.vocabulary.language
+    - taxonomy.vocabulary.region
+    - taxonomy.vocabulary.tags
+    - taxonomy.vocabulary.topics
+    - taxonomy.vocabulary.zipcode
+  module:
+    - comment
+    - dlaw_dashboard
+    - gtranslate
+    - media
+    - menu_admin_per_menu
+    - node
+    - path
+    - quick_node_clone
+    - redirect
+    - system
+    - taxonomy
+    - toolbar
+id: manager
+label: Manager
+weight: 3
+is_admin: null
+permissions:
+  - 'access comments'
+  - 'access content overview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'admin dlaw'
+  - 'administer comments'
+  - 'administer footer menu items'
+  - 'administer main menu items'
+  - 'administer nodes'
+  - 'administer redirect settings'
+  - 'administer redirects'
+  - 'administer users'
+  - 'clone page content'
+  - 'create audio media'
+  - 'create contact content'
+  - 'create document media'
+  - 'create image media'
+  - 'create page content'
+  - 'create remote_video media'
+  - 'create terms in language'
+  - 'create terms in region'
+  - 'create terms in tags'
+  - 'create terms in topics'
+  - 'create terms in zipcode'
+  - 'create url aliases'
+  - 'create video media'
+  - 'delete any audio media'
+  - 'delete any contact content'
+  - 'delete any document media'
+  - 'delete any image media'
+  - 'delete any page content'
+  - 'delete any remote_video media'
+  - 'delete any video media'
+  - 'delete contact revisions'
+  - 'delete own audio media'
+  - 'delete own contact content'
+  - 'delete own document media'
+  - 'delete own image media'
+  - 'delete own page content'
+  - 'delete own remote_video media'
+  - 'delete own video media'
+  - 'delete page revisions'
+  - 'delete terms in language'
+  - 'delete terms in region'
+  - 'delete terms in tags'
+  - 'delete terms in topics'
+  - 'delete terms in zipcode'
+  - 'edit any audio media'
+  - 'edit any contact content'
+  - 'edit any document media'
+  - 'edit any image media'
+  - 'edit any landing_page content'
+  - 'edit any page content'
+  - 'edit any remote_video media'
+  - 'edit any video media'
+  - 'edit own audio media'
+  - 'edit own comments'
+  - 'edit own contact content'
+  - 'edit own document media'
+  - 'edit own image media'
+  - 'edit own page content'
+  - 'edit own remote_video media'
+  - 'edit own video media'
+  - 'edit terms in language'
+  - 'edit terms in region'
+  - 'edit terms in tags'
+  - 'edit terms in topics'
+  - 'edit terms in zipcode'
+  - 'gtranslate settings'
+  - 'revert contact revisions'
+  - 'revert page revisions'
+  - 'select account cancellation method'
+  - 'view contact revisions'
+  - 'view page revisions'
+  - 'view the administration theme'

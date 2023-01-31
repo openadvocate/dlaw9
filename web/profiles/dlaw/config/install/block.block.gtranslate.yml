@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - gtranslate
+  theme:
+    - bootstrap_ui
+id: gtranslate
+theme: bootstrap_ui
+region: top_header
+weight: -12
+provider: null
+plugin: gtranslate_block
+settings:
+  id: gtranslate_block
+  label: GTranslate
+  label_display: '0'
+  provider: gtranslate
+visibility: {  }

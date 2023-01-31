@@ -1,0 +1,335 @@
+/* VARIABLES */
+
+// colors
+$primary-shade: #a8cf45;
+$primary-light: lighten($primary-shade, 37%);
+$primary-dark: darken($primary-shade, 12%);
+$accent-shade: #0072b6;
+$accent-light: lighten($accent-shade, 37%);
+$accent-dark: darken($accent-shade, 12%);
+// Reassign color vars to semantic color scheme
+$red: #dc3545;
+$yellow: #ffc107;
+$green: #28a745;
+$cyan: #17a2b8;
+$gray-100: #f8f9fa !default;
+$gray-800: #343a40 !default;
+$theme-colors: (
+  primary: $accent-shade,
+  secondary: $primary-shade,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-100,
+  dark: $gray-800,
+);
+$brand-primary: $accent-shade;
+//$brand-success: $green;
+//$brand-info: $teal;
+//$brand-warning: $orange;
+//$brand-danger: $red;
+$brand-inverse: $primary-shade;
+// Body
+//
+// Settings for the `<body>` element.
+//$body-bg: $white;
+//$body-color: $gray-dark;
+$inverse-bg: $primary-shade;
+//$inverse-color: $gray-lighter;
+// Links
+//
+// Style anchor elements.
+$link-color: $accent-shade;
+$link-decoration: none;
+$link-hover-color: $accent-dark;
+$link-hover-decoration: underline;
+// Comments
+$comment-spacer-x: 1.25em;
+$comment-spacer-y: 1.25em;
+// Responsive font sizes
+$enable-responsive-font-sizes: true;
+
+$maxWidth: 1145px;
+//$red: #a6161d;;
+$red: #c21818;
+
+$blackOption: #292929;
+$primaryColour: var(--primaryColour);
+
+// $primaryColour: #142345;
+// $primaryColour: var(--primaryColour);
+$primaryBackground: #f9f8f4;
+$darkerPrimaryAccent: #e6e7df;
+$accentPrimary: #faf6f5;
+$primaryBlack: var(--primaryBlack);
+$brandHover: #577c9b;
+
+$boxShadow: rgba(160, 25, 30, 0.15);
+
+$arrowLeft: url("../images/arrow-left.svg");
+$arrowLeftHover: url("../images/arrow-left-hover.svg");
+$arrowRight: url("../images/arrow-right.svg");
+$arrowRightHover: url("../images/arrow-right-hover.svg");
+$quotes: url("../images/quotes.svg");
+$time: url("../images/time.svg");
+$pin: url("../images/pin.svg");
+$fax: url("../images/icon-fax.svg");
+$mail: url("../images/icon-mail.svg");
+$phone: url("../images/icon-phone.svg");
+$website: url("../images/icon-website.svg");
+
+// use these variables in SCSS
+$arrowLeftOption: var(--arrowLeft);
+$arrowLeftHoverOption: var(--arrowLeftHover);
+$arrowRightOption: var(--arrowRight);
+$arrowRightHoverOption: var(--arrowRightHover);
+$quotesOption: var(--quotes);
+$timeOption: var(--time);
+$pinOption: var(--pin);
+$mailOption: var(--mail);
+$faxOption: var(--fax);
+$phoneOption: var(--phone);
+$websiteOption: var(--website);
+
+body {
+  --primaryBlack: #{$blackOption};
+  --primaryColour: #{$red};
+  --arrowLeft: #{$arrowLeft};
+  --arrowLeftHover: #{$arrowLeftHover};
+  --arrowRight: #{$arrowRight};
+  --arrowRightHover: #{$arrowRightHover};
+  --quotes: #{$quotes};
+  --pin: #{$pin};
+  --time: #{$time};
+  --fax: #{$fax};
+  --mail: #{$mail};
+  --phone: #{$phone};
+  --website: #{$website};
+}
+
+body.blue {
+  --primaryBlack: #{$blackOption};
+  --primaryColour: #0b5299;
+  --arrowLeft: url("../images/arrow-left-blue.svg");
+  --arrowLeftHover: url("../images/arrow-left-blue-hover.svg");
+  --arrowRight: url("../images/arrow-right-blue.svg");
+  --arrowRightHover: url("../images/arrow-right-blue-hover.svg");
+  --quotes: url("../images/quotes-blue.svg");
+  --pin: url("../images/pin-blue.svg");
+  --time: url("../images/time-blue.svg");
+  --fax: url("../images/icon-fax-blue.svg");
+  --mail: url("../images/icon-mail-blue.svg");
+  --phone: url("../images/icon-phone-blue.svg");
+  --website: url("../images/icon-website-blue.svg");
+}
+
+body.maroon {
+  --primaryColour: #8d0101;
+  --arrowLeft: url("../images/arrow-left-maroon.svg");
+  --arrowLeftHover: url("../images/arrow-left-maroon-hover.svg");
+  --arrowRight: url("../images/arrow-right-maroon.svg");
+  --arrowRightHover: url("../images/arrow-right-maroon-hover.svg");
+  --quotes: url("../images/quotes-maroon.svg");
+  --pin: url("../images/pin-maroon.svg");
+  --time: url("../images/time-maroon.svg");
+  --fax: url("../images/icon-fax-maroon.svg");
+  --mail: url("../images/icon-mail-maroon.svg");
+  --phone: url("../images/icon-phone-maroon.svg");
+  --website: url("../images/icon-website-maroon.svg");
+}
+
+body.burnt_orange {
+  --primaryColour: #ad4601;
+  --arrowLeft: url("../images/arrow-left-burnt-orange.svg");
+  --arrowLeftHover: url("../images/arrow-left-burnt-orange-hover.svg");
+  --arrowRight: url("../images/arrow-right-burnt-orange.svg");
+  --arrowRightHover: url("../images/arrow-right-burnt-orange-hover.svg");
+  --quotes: url("../images/quotes-burnt-orange.svg");
+  --pin: url("../images/pin-burnt-orange.svg");
+  --time: url("../images/time-burnt-orange.svg");
+  --fax: url("../images/icon-fax-burnt-orange.svg");
+  --mail: url("../images/icon-mail-burnt-orange.svg");
+  --phone: url("../images/icon-phone-burnt-orange.svg");
+  --website: url("../images/icon-website-burnt-orange.svg");
+}
+
+body.orange {
+  --primaryColour: #b05500;
+  --arrowLeft: url("../images/arrow-left-orange.svg");
+  --arrowLeftHover: url("../images/arrow-left-orange-hover.svg");
+  --arrowRight: url("../images/arrow-right-orange.svg");
+  --arrowRightHover: url("../images/arrow-right-orange-hover.svg");
+  --quotes: url("../images/quotes-orange.svg");
+  --pin: url("../images/pin-orange.svg");
+  --time: url("../images/time-orange.svg");
+  --fax: url("../images/icon-fax-orange.svg");
+  --mail: url("../images/icon-mail-orange.svg");
+  --phone: url("../images/icon-phone-orange.svg");
+  --website: url("../images/icon-website-orange.svg");
+}
+
+body.mustard_yellow {
+  --primaryColour: #936c07;
+  --arrowLeft: url("../images/arrow-left-mustard-yellow.svg");
+  --arrowLeftHover: url("../images/arrow-left-mustard-yellow-hover.svg");
+  --arrowRight: url("../images/arrow-right-mustard-yellow.svg");
+  --arrowRightHover: url("../images/arrow-right-mustard-yellow-hover.svg");
+  --quotes: url("../images/quotes-mustard-yellow.svg");
+  --pin: url("../images/pin-mustard-yellow.svg");
+  --time: url("../images/time-mustard-yellow.svg");
+  --fax: url("../images/icon-fax-mustard-yellow.svg");
+  --mail: url("../images/icon-mail-mustard-yellow.svg");
+  --phone: url("../images/icon-phone-mustard-yellow.svg");
+  --website: url("../images/icon-website-mustard-yellow.svg");
+}
+
+body.magenta {
+  --primaryColour: #821c4d;
+  --arrowLeft: url("../images/arrow-left-magenta.svg");
+  --arrowLeftHover: url("../images/arrow-left-magenta-hover.svg");
+  --arrowRight: url("../images/arrow-right-magenta.svg");
+  --arrowRightHover: url("../images/arrow-right-magenta-hover.svg");
+  --quotes: url("../images/quotes-magenta.svg");
+  --pin: url("../images/pin-magenta.svg");
+  --time: url("../images/time-magenta.svg");
+  --fax: url("../images/icon-fax-magenta.svg");
+  --mail: url("../images/icon-mail-magenta.svg");
+  --phone: url("../images/icon-phone-magenta.svg");
+  --website: url("../images/icon-website-magenta.svg");
+}
+
+body.indigo {
+  --primaryColour: #1c0c4b;
+  --arrowLeft: url("../images/arrow-left-indigo.svg");
+  --arrowLeftHover: url("../images/arrow-left-indigo-hover.svg");
+  --arrowRight: url("../images/arrow-right-indigo.svg");
+  --arrowRightHover: url("../images/arrow-right-indigo-hover.svg");
+  --quotes: url("../images/quotes-indigo.svg");
+  --pin: url("../images/pin-indigo.svg");
+  --time: url("../images/time-indigo.svg");
+  --fax: url("../images/icon-fax-indigo.svg");
+  --mail: url("../images/icon-mail-indigo.svg");
+  --phone: url("../images/icon-phone-indigo.svg");
+  --website: url("../images/icon-website-indigo.svg");
+}
+
+body.purple {
+  --primaryColour: #4723ac;
+  --arrowLeft: url("../images/arrow-left-purple.svg");
+  --arrowLeftHover: url("../images/arrow-left-purple-hover.svg");
+  --arrowRight: url("../images/arrow-right-purple.svg");
+  --arrowRightHover: url("../images/arrow-right-purple-hover.svg");
+  --quotes: url("../images/quotes-purple.svg");
+  --pin: url("../images/pin-purple.svg");
+  --time: url("../images/time-purple.svg");
+  --fax: url("../images/icon-fax-purple.svg");
+  --mail: url("../images/icon-mail-purple.svg");
+  --phone: url("../images/icon-phone-purple.svg");
+  --website: url("../images/icon-website-purple.svg");
+}
+
+body.violet {
+  --primaryColour: #680cb0;
+  --arrowLeft: url("../images/arrow-left-violet.svg");
+  --arrowLeftHover: url("../images/arrow-left-violet-hover.svg");
+  --arrowRight: url("../images/arrow-right-violet.svg");
+  --arrowRightHover: url("../images/arrow-right-violet-hover.svg");
+  --quotes: url("../images/quotes-violet.svg");
+  --pin: url("../images/pin-violet.svg");
+  --time: url("../images/time-violet.svg");
+  --fax: url("../images/icon-fax-violet.svg");
+  --mail: url("../images/icon-mail-violet.svg");
+  --phone: url("../images/icon-phone-violet.svg");
+  --website: url("../images/icon-website-violet.svg");
+}
+
+body.navy {
+  --primaryColour: #0c1a4b;
+  --arrowLeft: url("../images/arrow-left-navy.svg");
+  --arrowLeftHover: url("../images/arrow-left-navy-hover.svg");
+  --arrowRight: url("../images/arrow-right-navy.svg");
+  --arrowRightHover: url("../images/arrow-right-navy-hover.svg");
+  --quotes: url("../images/quotes-navy.svg");
+  --pin: url("../images/pin-navy.svg");
+  --time: url("../images/time-navy.svg");
+  --fax: url("../images/icon-fax-navy.svg");
+  --mail: url("../images/icon-mail-navy.svg");
+  --phone: url("../images/icon-phone-navy.svg");
+  --website: url("../images/icon-website-navy.svg");
+}
+
+body.royal_blue {
+  --primaryColour: #024ac0;
+  --arrowLeft: url("../images/arrow-left-royal-blue.svg");
+  --arrowLeftHover: url("../images/arrow-left-royal-blue-hover.svg");
+  --arrowRight: url("../images/arrow-right-royal-blue.svg");
+  --arrowRightHover: url("../images/arrow-right-royal-blue-hover.svg");
+  --quotes: url("../images/quotes-royal-blue.svg");
+  --pin: url("../images/pin-royal-blue.svg");
+  --time: url("../images/time-royal-blue.svg");
+  --fax: url("../images/icon-fax-royal-blue.svg");
+  --mail: url("../images/icon-mail-royal-blue.svg");
+  --phone: url("../images/icon-phone-royal-blue.svg");
+  --website: url("../images/icon-website-royal-blue.svg");
+}
+
+body.sky_blue {
+  --primaryColour: #1974b9;
+  --arrowLeft: url("../images/arrow-left-sky-blue.svg");
+  --arrowLeftHover: url("../images/arrow-left-sky-blue-hover.svg");
+  --arrowRight: url("../images/arrow-right-sky-blue.svg");
+  --arrowRightHover: url("../images/arrow-right-sky-blue-hover.svg");
+  --quotes: url("../images/quotes-sky-blue.svg");
+  --pin: url("../images/pin-sky-blue.svg");
+  --time: url("../images/time-sky-blue.svg");
+  --fax: url("../images/icon-fax-sky-blue.svg");
+  --mail: url("../images/icon-mail-sky-blue.svg");
+  --phone: url("../images/icon-phone-sky-blue.svg");
+  --website: url("../images/icon-website-sky-blue.svg");
+}
+
+body.dark_teal {
+  --primaryColour: #014a54;
+  --arrowLeft: url("../images/arrow-left-dark-teal.svg");
+  --arrowLeftHover: url("../images/arrow-left-dark-teal-hover.svg");
+  --arrowRight: url("../images/arrow-right-dark-teal.svg");
+  --arrowRightHover: url("../images/arrow-right-dark-teal-hover.svg");
+  --quotes: url("../images/quotes-dark-teal.svg");
+  --pin: url("../images/pin-dark-teal.svg");
+  --time: url("../images/time-dark-teal.svg");
+  --fax: url("../images/icon-fax-dark-teal.svg");
+  --mail: url("../images/icon-mail-dark-teal.svg");
+  --phone: url("../images/icon-phone-dark-teal.svg");
+  --website: url("../images/icon-website-dark-teal.svg");
+}
+
+body.green {
+  --primaryColour: #347037;
+  --arrowLeft: url("../images/arrow-left-green.svg");
+  --arrowLeftHover: url("../images/arrow-left-green-hover.svg");
+  --arrowRight: url("../images/arrow-right-green.svg");
+  --arrowRightHover: url("../images/arrow-right-green-hover.svg");
+  --quotes: url("../images/quotes-green.svg");
+  --pin: url("../images/pin-green.svg");
+  --time: url("../images/time-green.svg");
+  --fax: url("../images/icon-fax-green.svg");
+  --mail: url("../images/icon-mail-green.svg");
+  --phone: url("../images/icon-phone-green.svg");
+  --website: url("../images/icon-website-green.svg");
+}
+
+body.olive {
+  --primaryColour: #605301;
+  --arrowLeft: url("../images/arrow-left-olive.svg");
+  --arrowLeftHover: url("../images/arrow-left-olive-hover.svg");
+  --arrowRight: url("../images/arrow-right-olive.svg");
+  --arrowRightHover: url("../images/arrow-right-olive-hover.svg");
+  --quotes: url("../images/quotes-olive.svg");
+  --pin: url("../images/pin-olive.svg");
+  --time: url("../images/time-olive.svg");
+  --fax: url("../images/icon-fax-olive.svg");
+  --mail: url("../images/icon-mail-olive.svg");
+  --phone: url("../images/icon-phone-olive.svg");
+  --website: url("../images/icon-website-olive.svg");
+}

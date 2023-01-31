@@ -1,0 +1,6 @@
+name: DLAW Topcs
+type: module
+package: DLAW
+description: Feature around /topics pages.
+core_version_requirement: ^9
+version: '0.1.0'

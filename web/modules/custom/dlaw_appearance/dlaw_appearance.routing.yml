@@ -1,0 +1,7 @@
+dlaw_appearance.settings:
+  path: "/admin/dashboard/settings/appearance"
+  defaults:
+    _form: '\Drupal\dlaw_appearance\Form\AppearanceForm'
+    _title: "Appearance"
+  requirements:
+    _permission: "access toolbar"

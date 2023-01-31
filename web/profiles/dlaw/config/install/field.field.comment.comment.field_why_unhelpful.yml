@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+    - field.storage.comment.field_why_unhelpful
+  module:
+    - options
+id: comment.comment.field_why_unhelpful
+field_name: field_why_unhelpful
+entity_type: comment
+bundle: comment
+label: 'Please tell us why this page wasn''t helpful'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

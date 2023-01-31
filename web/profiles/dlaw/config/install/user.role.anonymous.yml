@@ -1,0 +1,79 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - contact
+    - entity_print
+    - entity_print_views
+    - media
+    - rate
+    - system
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'administer entity print'
+  - 'bypass entity print access'
+  - 'cast rate vote on node of page'
+  - 'entity print access bundle accordion_row'
+  - 'entity print access bundle accordions'
+  - 'entity print access bundle audio'
+  - 'entity print access bundle banner_cta'
+  - 'entity print access bundle banner_image'
+  - 'entity print access bundle column'
+  - 'entity print access bundle columns_layout'
+  - 'entity print access bundle contact'
+  - 'entity print access bundle cta_card'
+  - 'entity print access bundle document'
+  - 'entity print access bundle events_block'
+  - 'entity print access bundle feedback'
+  - 'entity print access bundle fivestar'
+  - 'entity print access bundle hero'
+  - 'entity print access bundle hero_topic_cards'
+  - 'entity print access bundle image'
+  - 'entity print access bundle image_with_text'
+  - 'entity print access bundle landing_page'
+  - 'entity print access bundle language'
+  - 'entity print access bundle news_block'
+  - 'entity print access bundle page'
+  - 'entity print access bundle page_cta_cards'
+  - 'entity print access bundle personal'
+  - 'entity print access bundle region'
+  - 'entity print access bundle remote_video'
+  - 'entity print access bundle supporters'
+  - 'entity print access bundle tags'
+  - 'entity print access bundle testimonial'
+  - 'entity print access bundle testimonials'
+  - 'entity print access bundle topic'
+  - 'entity print access bundle topic_cards'
+  - 'entity print access bundle topics'
+  - 'entity print access bundle twitter_feed_block'
+  - 'entity print access bundle updown'
+  - 'entity print access bundle video'
+  - 'entity print access bundle vote'
+  - 'entity print access bundle zipcode'
+  - 'entity print access type block_content'
+  - 'entity print access type comment'
+  - 'entity print access type contact_message'
+  - 'entity print access type file'
+  - 'entity print access type linkcheckerlink'
+  - 'entity print access type media'
+  - 'entity print access type menu_link_content'
+  - 'entity print access type node'
+  - 'entity print access type paragraph'
+  - 'entity print access type path_alias'
+  - 'entity print access type redirect'
+  - 'entity print access type search_api_task'
+  - 'entity print access type shortcut'
+  - 'entity print access type taxonomy_term'
+  - 'entity print access type user'
+  - 'entity print access type vote'
+  - 'entity print access type vote_result'
+  - 'entity print views access'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'view media'

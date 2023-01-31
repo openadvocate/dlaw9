@@ -1,0 +1,67 @@
+definitions:
+  contact__site_page:
+    menu_name: footer
+    parent: ''
+    weight: 0
+    expanded: false
+    enabled: true
+  standard__front_page:
+    menu_name: main
+    parent: ''
+    weight: -50
+    expanded: false
+    enabled: false
+  dlaw_glossary__settings:
+    menu_name: admin
+    parent: system.admin
+    weight: -79
+    expanded: false
+    enabled: true
+  system__admin_content:
+    menu_name: admin
+    parent: system.admin
+    weight: -78
+    expanded: false
+    enabled: true
+  system__admin_structure:
+    menu_name: admin
+    parent: system.admin
+    weight: -77
+    expanded: false
+    enabled: true
+  system__themes_page:
+    menu_name: admin
+    parent: system.admin
+    weight: -76
+    expanded: false
+    enabled: true
+  system__modules_list:
+    menu_name: admin
+    parent: system.admin
+    weight: -75
+    expanded: false
+    enabled: true
+  system__admin_config:
+    menu_name: admin
+    parent: system.admin
+    weight: -74
+    expanded: false
+    enabled: true
+  entity__user__collection:
+    menu_name: admin
+    parent: system.admin
+    weight: -73
+    expanded: false
+    enabled: true
+  system__admin_reports:
+    menu_name: admin
+    parent: system.admin
+    weight: -72
+    expanded: false
+    enabled: true
+  help__main:
+    menu_name: admin
+    parent: system.admin
+    weight: -71
+    expanded: false
+    enabled: true

@@ -1,0 +1,12 @@
+langcode: en
+name: 'Test Legal Services'
+mail: test@example.com
+slogan: 'A non-profit law firm and community organization helping low and moderate income people in Test State'
+page:
+  403: ''
+  404: /404-not-found
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: ''

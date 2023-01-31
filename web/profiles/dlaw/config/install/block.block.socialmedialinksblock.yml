@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - dlaw_social_media_links
+  theme:
+    - bootstrap_ui
+id: socialmedialinksblock
+theme: bootstrap_ui
+region: top_header
+weight: -11
+provider: null
+plugin: dlaw_social_media_links
+settings:
+  id: dlaw_social_media_links
+  label: 'Social Media Links Block'
+  label_display: '0'
+  provider: dlaw_social_media_links
+visibility: {  }

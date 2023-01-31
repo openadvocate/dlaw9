@@ -1,0 +1,55 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+  {% set body = row.content['#node'].body.value | replace({"&nbsp;": " "})| raw | nl2br %}
+
+  <a href={{path('entity.node.canonical', {'node': row.content['#node'].nid.value})}}>
+    <div{{ row.attributes.addClass(row_classes) }}>
+
+      <h4>{{row.content['#node'].title.value}}</h4>
+      <br/>
+      {# <div class="event__details-wrapper">
+        {% if row.content['#node'].field_date.value %}
+          <div class="event__details-date">
+            <span>{{row.content['#node'].field_date.value | date('F d, Y')}}</span>
+          </div>
+        {% endif %}
+        {% if row.content['#node'].field_location.value %}
+          <div class="event__details-location">
+            <span>{{row.content['#node'].field_location.value}}</span>
+          </div>
+        {% endif %}
+      </div> #}
+      {% if row.content['#node'].body.summary %}
+        {{row.content['#node'].body.summary | raw}}
+      {% else %}
+        <p>{{(body | striptags | length > 250) ? (body | striptags | slice(0, 250) ~ '...')| raw : body | striptags | raw}}</p>
+      {% endif %}
+    </div>
+  </a>
+{% endfor %}
+

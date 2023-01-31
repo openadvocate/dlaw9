@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: image_with_text_carousel
+label: 'Image with Text Carousel (555x370)'
+effects:
+  7ce160e3-5673-4e74-8b9c-0daac3720e6e:
+    uuid: 7ce160e3-5673-4e74-8b9c-0daac3720e6e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 555
+      height: 370
+      anchor: center-center

@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Contains dlaw_sections.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dlaw_sections_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, ['node_page_form', 'node_page_edit_form'])) {
+    $curren_page_nid = $form_state->getFormObject()->getEntity()->id() ?? 0;
+
+    if (isset($form['field_section'])) {
+      if ($section_top_nid = _dlaw_sections_section_top_nid($curren_page_nid)) {
+        $section_top = Node::load($section_top_nid);
+
+        $form['field_section']['widget'] = [
+          '#markup' => t("<p>This page is already a section item of %section_top.</p>", ['%section_top' => $section_top->toLink()->toString()])
+        ];
+      }
+    }
+    $form['#validate'][] = 'dlaw_sections_page_node_form_validate';
+  }
+}
+
+/**
+ * Validate child section pages for duplicity.
+ */
+function dlaw_sections_page_node_form_validate(&$form, FormStateInterface $form_state) {
+  $curren_page_nid = $form_state->getFormObject()->getEntity()->id() ?? 0;
+
+  foreach ($form_state->getValue('field_section') ?? [] as $key => $section) {
+    if (is_numeric($key) && !empty($section['target_id'])) {
+      $used_in_section = _dlaw_sections_section_top_nid($section['target_id'], $form_state->getFormObject()->getEntity()->id());
+
+      if ($used_in_section) {
+        $used_node = Node::load($section['target_id']);
+
+        $form_state->setErrorByName('field_section', t("The page is already in another section: <em>:title (:nid used in :section_nid)</em>", [':title' => $used_node->title->value, ':nid' => $used_node->id(), ':section_nid' => $used_in_section]));
+      }
+
+      // Check if the section is itself.
+      if ($curren_page_nid == $section['target_id']) {
+        $form_state->setErrorByName('field_section', "You cannot add itself to the section.");
+      }
+    }
+  }
+}
+
+function _dlaw_sections_section_top_nid($section_item_nid, $section_top_nid = 0) {
+  return \Drupal::database()->select('node__field_section', 's')
+    ->fields('s', ['entity_id'])
+    ->condition('s.field_section_target_id', $section_item_nid)
+    ->condition('s.entity_id', $section_top_nid, '<>')
+    ->execute()
+    ->fetchField();
+}

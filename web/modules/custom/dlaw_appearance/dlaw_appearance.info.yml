@@ -1,0 +1,6 @@
+name: "DLAW Appearance"
+type: module
+package: DLAW
+description: "Theme colour options for DLAW."
+core_version_requirement: ^9
+version: "1.0"

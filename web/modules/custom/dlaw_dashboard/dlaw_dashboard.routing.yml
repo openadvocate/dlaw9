@@ -1,0 +1,26 @@
+dlaw_dashboard:
+  path: "/admin/dashboard"
+  defaults:
+    _controller: '\Drupal\dlaw_dashboard\Controller\RoutesController::pageRenderer'
+    _title: "Dashboard"
+  requirements:
+    _permission: "admin dlaw"
+
+dlaw_dashboard.site_info:
+  path: '/admin/dashboard/site-information'
+  defaults:
+    _form: '\Drupal\dlaw_dashboard\Form\SiteInfoForm'
+    _title: 'Site Information'
+    option: ''
+  requirements:
+    _permission: "admin dlaw"
+
+# Copied from admin_toolbar_tools.routing.yml to set new _permission.
+dlaw_dashboard.flush:
+  path: '/admin/dashboard/flush'
+  defaults:
+    _controller: '\Drupal\admin_toolbar_tools\Controller\ToolbarController::flushAll'
+    _title: 'Flush all caches'
+  requirements:
+    _permission: 'admin dlaw'
+    _csrf_token: 'TRUE'

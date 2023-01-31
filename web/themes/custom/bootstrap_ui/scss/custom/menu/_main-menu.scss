@@ -1,0 +1,352 @@
+.main-menu-wrapper {
+  align-items: center !important;
+  border-bottom: 1px dashed $primaryColour;
+  justify-content: flex-start !important;
+  // margin-bottom: 1.5625rem;
+  padding: 0 0 1rem;
+
+  @include media-breakpoint-down(sm) {
+    align-items: flex-start !important;
+    flex-wrap: nowrap !important;
+  }
+
+  @include media-breakpoint-up(xl) {
+    max-width: $maxWidth;
+  }
+}
+
+.site-logo {
+  margin-right: 1rem;
+  // width: 168px;
+  max-width: 18.75rem; //300px
+
+  @include media-breakpoint-down(sm) {
+    max-width: 87px;
+  }
+}
+
+.bg-primary {
+  background-color: $primaryBackground !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-menu-items-wrap {
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    border-bottom: 1px solid $primaryColour;
+    display: flex;
+    padding: 1rem 2rem;
+    position: relative;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 0 2rem;
+  }
+
+  .exit__link {
+    &.cloned {
+      margin-left: auto;
+
+      @include media-breakpoint-up(xl) {
+        display: none;
+      }
+    }
+  }
+
+  .block-gtranslate {
+    &.cloned {
+      margin-bottom: 0.84375rem; //13.5px
+      margin-top: 0.59375rem; //9.5px
+      text-align: center;
+
+      @include media-breakpoint-up(xl) {
+        display: none;
+      }
+
+      select {
+        text-align: center;
+      }
+    }
+  }
+
+  .main-menu {
+    @include media-breakpoint-between(md, lg) {
+      background-color: $primaryBackground;
+      left: 0;
+      padding: 2.1875rem 1rem 7.5rem;
+      position: absolute;
+      top: 57px;
+      width: 50%;
+      z-index: 9;
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin: 0 auto;
+      max-width: $maxWidth;
+    }
+  }
+}
+
+.block-gtranslate {
+  select {
+    font-size: 0.875rem; //14px
+  }
+}
+
+.site-name {
+  font-family: $font-almanach;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(md) {
+    font-size: 1.625rem; //26px
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 123%;
+  }
+}
+
+.site-name-slogan {
+  font-size: 1rem;
+  font-weight: 400;
+  // letter-spacing: -1.2px;
+  // line-height: 179%;
+  margin: 0;
+}
+
+.main-menu__menu {
+  .nav-item {
+    @include media-breakpoint-down(lg) {
+      border-bottom: 1px dashed $primaryColour;
+      padding: 0.75rem 0;
+      text-align: center;
+    }
+
+    @include media-breakpoint-up(md) {
+      padding: 1rem 0;
+    }
+
+    a {
+      color: $blackOption !important;
+      font-size: 1.1875rem;
+      font-weight: 600;
+      padding: 0;
+
+      @include media-breakpoint-up(xl) {
+        padding: 0 0.984375rem;
+      }
+
+      &:active,
+      &:focus,
+      &:hover {
+        @include media-breakpoint-up(xl) {
+          color: $primaryColour !important;
+        }
+      }
+    }
+
+    &:first-child {
+      a {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+.region-secondary-menu {
+  align-items: center;
+  flex-wrap: nowrap;
+
+  &.cloned {
+    border: 0;
+    display: flex;
+    margin-top: 0.75rem; //12px
+    padding: 1rem;
+
+    @include media-breakpoint-up(xl) {
+      display: none;
+    }
+
+    .default__btn {
+      margin-left: auto;
+    }
+  }
+
+  .default__btn {
+    align-items: center;
+    border: 0;
+    display: flex;
+    height: 40px;
+    margin-left: 1.4375rem;
+    outline: none;
+  }
+}
+
+.bg-secondary {
+  background-color: $primaryBackground !important;
+  display: none;
+  margin-left: auto;
+  padding: 0;
+
+  @include media-breakpoint-up(xl) {
+    display: block;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+}
+
+.region-top-header {
+  border-bottom: 1px dashed $primaryColour;
+  flex-wrap: nowrap;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.mobile-hamburger-wrapper {
+  @include media-breakpoint-between(md, lg) {
+    align-items: center;
+    display: flex;
+  }
+
+  p {
+    display: none;
+    margin: 0 0.5rem 0 0;
+
+    @include media-breakpoint-between(md, lg) {
+      display: inline-block;
+    }
+  }
+}
+
+.mobile-hamburger {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 16px;
+  justify-content: space-between;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 22px;
+
+  @include media-breakpoint-up(md) {
+    left: unset;
+    margin-top: 0.25rem; //4px
+    position: relative;
+    right: unset;
+    top: unset;
+  }
+
+  @include media-breakpoint-up(xl) {
+    display: none;
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: rotate(40deg);
+      }
+
+      &:nth-child(2) {
+        transform: scale(0);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-40deg);
+      }
+    }
+  }
+
+  span {
+    border-radius: 99px;
+    background: #000;
+    height: 2px;
+    transform-origin: left;
+    transition: 0.3s ease;
+    width: 100%;
+
+    &:nth-child(3) {
+      transform-origin: left;
+    }
+  }
+}
+
+.navbar-toggler {
+  display: none;
+}
+
+.menu-item--expanded.dropdown {
+  &:hover > .dropdown-menu {
+    @include media-breakpoint-up(xl) {
+      background-color: $primaryBackground;
+      display: block;
+    }
+  }
+
+  &.show {
+    .dropdown-toggle {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background-color: transparent;
+    border: 0;
+    text-align: center;
+
+    @include media-breakpoint-up(xl) {
+      box-shadow: -8px 8px 0px rgba(11, 82, 153, 0.15);
+      margin-top: 1px;
+      padding: 1.5rem 0;
+      text-align: unset;
+    }
+
+    a {
+      @extend .body__medium;
+      font-weight: 400;
+    }
+  }
+
+  .dropdown-item {
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1.5rem;
+    }
+
+    &:last-child {
+      @include media-breakpoint-up(xl) {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      @include media-breakpoint-up(xl) {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.dropdown-toggle {
+  &::after {
+    background-image: url("../images/down.svg");
+    border: 0;
+    height: 6px;
+    margin-left: 0.5rem;
+    width: 10px;
+  }
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #eeeddf;
+}

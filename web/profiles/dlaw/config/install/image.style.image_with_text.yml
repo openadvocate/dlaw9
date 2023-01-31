@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: image_with_text
+label: 'Image with Text (555x500)'
+effects:
+  44b550d0-c866-4376-a09a-53e21dde99df:
+    uuid: 44b550d0-c866-4376-a09a-53e21dde99df
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 555
+      height: 500
+      anchor: center-center

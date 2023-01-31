@@ -1,0 +1,81 @@
+.topics-page {
+  .view-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2.5rem 1.5rem; //40px 24px
+
+    @include media-breakpoint-up(xl) {
+      margin: 0 auto;
+      max-width: $maxWidth;
+      padding: 3.875rem 0; //62px
+    }
+  }
+
+  .views-row {
+    @include cards;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem; //32px
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      margin: 0 1.875rem 1.875rem 0; //30px
+      width: 47%;
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-right: 1.875rem; //30px
+      padding: 1.125rem 1.5rem; //18px 24px
+      width: 360px;
+    }
+
+    &:nth-child(even) {
+      @include media-breakpoint-up(md) {
+        margin-right: 0;
+      }
+
+      @include media-breakpoint-up(xl) {
+        margin-right: 1.875rem;
+      }
+    }
+
+    &:nth-child(3n) {
+      @include media-breakpoint-up(xl) {
+        margin-right: 0;
+      }
+    }
+
+    .topic-card__btn {
+      margin-top: auto;
+    }
+
+    .topic-card__item-wrapper {
+      // align-items: flex-start;
+      align-items: center;
+      display: flex;
+
+      h5 {
+        display: inline-block;
+        width: 72%;
+      }
+
+      img {
+        margin-bottom: 0;
+      }
+    }
+
+    img,
+    i {
+      display: inline-block;
+      height: 57px;
+      margin-right: 1.25rem; //20px
+      vertical-align: top;
+      width: 60px;
+    }
+  }
+}
+
+// .topic-card__children {
+//   display: flex;
+//   flex-wrap: wrap;
+// }

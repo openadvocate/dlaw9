@@ -1,0 +1,69 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+
+  {% set index = loop.index - 1 %}
+  {% set date_recr = row.content['#view'].result %}
+  {% set startDate = row.content['#row']._entity.field_date.start_date %}
+	{% set endDate = row.content['#row']._entity.field_date.end_date %}
+
+  {% set body = row.content['#row']._entity.body.value | raw %}
+
+  <a href={{path('entity.node.canonical', {'node': row.content['#row']._entity.nid.value})}}>
+    <div{{ row.attributes.addClass(row_classes) }}>
+      {# {{- row.content -}} #}
+      <h4>{{row.content['#row']._entity.title.value}}</h4>
+      <div class="event__details-wrapper">
+        {% if row.content['#row']._entity.field_date.value %}
+          <div class="event__details-date">
+            <span>
+              {{ date_recr[index].date_recur__node__field_date_node_field_data_field_date_valu| date('F d, Y, ') }}
+              {% if startDate %}
+                {% if endDate %}
+                  {{startDate | date("g:i A")}} - {{endDate | date("g:i A")}}
+                {% else %}
+                 {{startDate | date("g:i A")}}
+                {% endif %}
+              {% endif %}
+            </span>
+          </div>
+        {% endif %}
+        {% if row.content['#row']._entity.field_location.value %}
+          <div class="event__details-location">
+            <span>{{row.content['#row']._entity.field_location.value}}</span>
+          </div>
+        {% endif %}
+      </div>
+      {% if row.content['#row']._entity.body.summary %}
+        {{row.content['#row']._entity.body.summary | raw}}
+      {% else %}
+        <p>{{(body | striptags | length > 250) ? (body | striptags | slice(0, 250) ~ '...')| raw : body | striptags | raw}}</p>
+      {% endif %}
+    </div>
+  </a>
+{% endfor %}
+

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_banner_body
+    - paragraphs.paragraphs_type.banner_cta
+  module:
+    - text
+id: paragraph.banner_cta.field_banner_body
+field_name: field_banner_body
+entity_type: paragraph
+bundle: banner_cta
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

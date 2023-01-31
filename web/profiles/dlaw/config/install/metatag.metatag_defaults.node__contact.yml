@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node__contact
+label: 'Content: Contact'
+tags:
+  description: '[node:summary]'
+  schema_organization_additional_type: LegalService
+  schema_organization_address: 'a:6:{s:5:"@type";s:13:"PostalAddress";s:13:"streetAddress";s:42:"[node:field_contact_address:address_line1]";s:15:"addressLocality";s:37:"[node:field_contact_address:locality]";s:13:"addressRegion";s:48:"[node:field_contact_address:administrative_area]";s:10:"postalCode";s:40:"[node:field_contact_address:postal_code]";s:14:"addressCountry";s:41:"[node:field_contact_address:country_name]";}'
+  schema_organization_description: '[node:body]'
+  schema_organization_id: '[node:url]'
+  schema_organization_name: '[node:title]'
+  schema_organization_price_range: 'Pro bono'
+  schema_organization_telephone: '[node:field_contact_phone]'
+  schema_organization_type: Organization
+  schema_organization_url: '[node:field_contact_website:uri]'

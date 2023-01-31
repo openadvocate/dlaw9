@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_nsmi_code
+    - taxonomy.vocabulary.topics
+id: taxonomy_term.topics.field_nsmi_code
+field_name: field_nsmi_code
+entity_type: taxonomy_term
+bundle: topics
+label: 'NSMI Code'
+description: 'Look up at https://nsmi.lsntap.org/browse'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

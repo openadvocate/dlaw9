@@ -1,0 +1,19 @@
+##KEEP THIS IN DISTRIBUTED THEME##
+
+.idea
+
+gulp.settings.local.js
+
+#ignore bootstrap source files
+#bootstrap
+
+# Ignore the node modules folder (created by 'npm install').
+node_modules
+
+# Ignore any errors thrown by npm or yarn
+npm-debug.log
+yarn-error.log
+
+# Ignore any map files. These don't need to be committed.
+*.map
+

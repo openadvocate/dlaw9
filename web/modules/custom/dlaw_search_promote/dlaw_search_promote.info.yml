@@ -1,0 +1,8 @@
+name: DLAW Search Promote
+type: module
+package: DLAW
+description: 'Promote pages in the site search.'
+core_version_requirement: ^9
+version: '0.1.0'
+dependencies:
+  - google_analytics:google_analytics

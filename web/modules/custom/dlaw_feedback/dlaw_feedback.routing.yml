@@ -1,0 +1,7 @@
+dlaw_feedback.feedback_export:
+  path: '/admin/dashboard/content/feedback-csv'
+  defaults:
+    _controller: 'Drupal\dlaw_feedback\Controller\FeedbackExportController::download'
+    _title: 'Feedback Export via CSV'
+  requirements:
+    _permission: 'admin dlaw'

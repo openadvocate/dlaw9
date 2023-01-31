@@ -1,0 +1,214 @@
+.events__lhs {
+  .views-row {
+    border: 3px solid $primaryColour;
+    box-shadow: -8px 8px 0px rgba(11, 82, 153, 0.15);
+  }
+}
+
+.event__details-wrapper {
+  display: flex;
+  margin: 1rem 0 0.75rem; //12px
+}
+
+.event__details-date,
+.event__details-location {
+  span {
+    align-items: center;
+    display: flex;
+    font-size: 0.875rem; //14px
+  }
+}
+
+.event__details-date {
+  span {
+    &::before {
+      background-image: $timeOption;
+      content: "";
+      display: inline-block;
+      height: 16px;
+      margin-right: 0.375rem;
+      width: 16px;
+    }
+  }
+}
+
+.event__details-location {
+  margin-left: 1.6875rem; //27px
+
+  span {
+    &::before {
+      background-image: $pinOption;
+      content: "";
+      display: inline-block;
+      height: 18px;
+      margin-right: 0.575rem;
+      width: 14px;
+    }
+  }
+}
+
+form[data-drupal-selector="views-exposed-form-events-page-events"],
+form[data-drupal-selector="views-exposed-form-events-page-past-events"] {
+  .form-row {
+    display: flex;
+
+    @include media-breakpoint-up(md) {
+      flex-wrap: wrap;
+    }
+
+    @include media-breakpoint-up(xl) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  fieldset {
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  input,
+  select {
+    background-color: #fff;
+    border: 1px solid $primaryColour;
+    border-radius: 4.0625rem; //65px
+    height: 50px;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0.5rem 2.4rem 0.5rem 0.5rem;
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  .form-item-title {
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 1.5rem !important; //24px
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 0 !important; //24px
+      margin-right: 1rem;
+      width: 716px;
+    }
+  }
+
+  .js-form-item-field-topics-target-id {
+    display: flex;
+    position: relative;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      margin-right: 1rem;
+      width: 32%;
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 143px;
+    }
+
+    &::after {
+      background-image: url("../images/down.svg");
+      border: 0;
+      content: "";
+      display: inline-block;
+      height: 6px;
+      margin-left: 0.5rem;
+      position: absolute;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+    }
+
+    select {
+      width: 100%;
+    }
+  }
+
+  .js-form-item-field-region-target-id {
+    display: flex;
+    position: relative;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      margin-right: 1rem;
+      width: 32%;
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 122px;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    &::after {
+      background-image: url("../images/down.svg");
+      border: 0;
+      content: "";
+      display: inline-block;
+      height: 6px;
+      margin-left: 0.5rem;
+      position: absolute;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+    }
+  }
+
+  .form-submit {
+    height: 50px !important;
+    justify-content: center;
+    margin-left: 0 !important;
+    position: relative !important;
+    right: unset !important;
+    top: unset !important;
+    width: 100% !important;
+
+    @include media-breakpoint-up(md) {
+      width: 31% !important;
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 111px !important;
+    }
+  }
+}
+
+.events__past-btn {
+  @include secondaryBtn;
+  border-color: transparent;
+  color: $primaryColour;
+  display: block;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  height: 43px;
+  line-height: 1.15;
+  margin: 1.5rem auto 0; //24px
+  padding: 0.5rem 1.25rem 0.625rem; //8px 20px 10px
+  position: relative;
+  width: 187px;
+
+  &::after {
+    @include backgroundImg(url("../images/right-black.svg"));
+    content: "";
+    display: inline-block;
+    height: 10px;
+    position: absolute;
+    right: 11px;
+    top: 51%;
+    transform: translateY(-50%);
+    width: 6px;
+  }
+}

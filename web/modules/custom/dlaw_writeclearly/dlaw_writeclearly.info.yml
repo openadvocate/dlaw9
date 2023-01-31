@@ -1,0 +1,6 @@
+name: DLAW WriteClearly
+type: module
+package: DLAW
+description: Add WriteClearly tab for content editors.
+core_version_requirement: ^9
+version: "0.1.0"

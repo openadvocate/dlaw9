@@ -1,0 +1,210 @@
+.paragraph--type--topics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  position: relative;
+
+  @include media-breakpoint-up(xl) {
+    flex-direction: row;
+    padding: 5.625rem 0;
+  }
+
+  &.polka__dots {
+    @include polkaDotBg;
+  }
+}
+
+.topics-category__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include media-breakpoint-up(xl) {
+    flex-direction: row;
+    max-width: $maxWidth;
+  }
+}
+
+.topics-category__lhs {
+  z-index: 2;
+
+  @include media-breakpoint-down(lg) {
+    background-color: $primaryBackground;
+    margin: 0 auto 1rem;
+    padding: 1rem 1.5rem;
+    width: 90%;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin-bottom: 0;
+    margin-right: 3.625rem;
+    padding: 2.5rem;
+    position: relative;
+    width: 100%;
+  }
+
+  h4 {
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+}
+
+.topics-category__rhs {
+  z-index: 2;
+
+  @include media-breakpoint-up(xl) {
+    margin-left: auto;
+    margin-top: -44px;
+  }
+}
+
+.topics-category__taxonomy {
+  display: grid;
+  padding: 0 1.5rem;
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include media-breakpoint-up(xl) {
+    display: grid;
+    flex-wrap: unset;
+    grid-gap: 1.875rem;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+  }
+}
+
+.topics-category__topics {
+  @include cards;
+  width: 100%;
+
+  @include media-breakpoint-down(lg) {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 1rem auto;
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 48%;
+  }
+
+  @include media-breakpoint-up(xl) {
+    width: 250px;
+  }
+
+  &:nth-child(n + 5) {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+
+  h5 {
+    display: inline-block;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    // margin-left: 1rem;
+    margin-top: -0.4rem;
+
+    @include media-breakpoint-up(xl) {
+      display: block;
+      margin-left: 0;
+      margin-top: 0;
+    }
+  }
+
+  img,
+  i {
+    display: inline-block;
+    height: 31px;
+    margin-bottom: 0.625rem;
+    width: 33px;
+
+    @include media-breakpoint-up(xl) {
+      display: block;
+    }
+  }
+
+  i {
+    background-image: url("../images/vector.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.topics-category__bg {
+  background-color: $primaryBackground;
+  border-radius: 3.125rem;
+  bottom: 50%;
+  display: none;
+  height: 94%;
+  left: 50%;
+  max-width: 1074px;
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+
+  @include media-breakpoint-up(xl) {
+    display: block;
+  }
+
+  @include media-breakpoint-up(xl) {
+    // left: 48%;
+    // top: 102px;
+    bottom: 0;
+    height: 100%;
+    left: 80%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 1074px;
+    z-index: -1;
+  }
+
+  &.couple {
+    @include media-breakpoint-up(xl) {
+      left: 101%;
+    }
+  }
+
+  &.multi {
+    @include media-breakpoint-up(xl) {
+      left: 192%;
+    }
+  }
+}
+
+.topics-category__link {
+  @include defaultBtn;
+  display: none;
+  margin-top: 1.5rem;
+
+  @include media-breakpoint-up(xl) {
+    display: block;
+  }
+
+  &.mobile {
+    display: block;
+    margin: 0.5rem auto 0;
+    width: fit-content;
+
+    @include media-breakpoint-up(xl) {
+      display: none;
+    }
+  }
+}
+
+.topics-category__body {
+  font-size: 1.1875rem; //19px
+  line-height: 132%;
+
+  @include media-breakpoint-up(xl) {
+    font-size: 1.5rem; //24px;
+    line-height: 117%;
+  }
+}

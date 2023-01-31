@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: small
+label: 'Small (362x200)'
+effects:
+  7a8ef77b-acd5-4c20-a1fa-1c242e05b008:
+    uuid: 7a8ef77b-acd5-4c20-a1fa-1c242e05b008
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 362
+      height: 200
+      anchor: center-center

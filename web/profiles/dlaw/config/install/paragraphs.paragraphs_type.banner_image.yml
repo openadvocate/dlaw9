@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: banner_image
+label: 'Banner - Image'
+icon_uuid: null
+icon_default: null
+description: 'The fields are shared with Banner - CTA'
+behavior_plugins: {  }

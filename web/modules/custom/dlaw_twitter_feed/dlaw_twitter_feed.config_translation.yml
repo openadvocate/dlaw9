@@ -1,0 +1,5 @@
+dlaw_twitter_feed.settings:
+  title: "Twitter Feed"
+  base_route_name: dlaw_twitter_feed.dlaw_twitter_feed_config_form
+  names:
+    - dlaw_twitter_feed.settings

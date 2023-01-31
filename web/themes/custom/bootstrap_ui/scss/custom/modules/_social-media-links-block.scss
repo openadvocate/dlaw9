@@ -1,0 +1,53 @@
+.block-dlaw-social-media-links {
+  align-items: center;
+  display: flex;
+
+  p {
+    font-size: 0.875rem;
+    line-height: 1.43;
+    margin-bottom: 0;
+    margin-right: 0.625rem;
+  }
+}
+
+.social-media-links {
+  align-items: center;
+  display: flex;
+
+  &.cloned {
+    @include media-breakpoint-up(xl) {
+      display: none;
+    }
+
+    p {
+      font-size: 0.875rem;
+      line-height: 1.43;
+      margin-bottom: 0;
+      margin-right: 0.625rem;
+    }
+  }
+}
+
+.social-media-links__link {
+  margin-right: 0.5rem;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.region-top-header {
+  .social-media-links {
+    @include media-breakpoint-up(xl) {
+      margin-left: 1.3125rem;
+    }
+
+    p {
+      margin: 0;
+
+      @include media-breakpoint-up(xl) {
+        display: none;
+      }
+    }
+  }
+}

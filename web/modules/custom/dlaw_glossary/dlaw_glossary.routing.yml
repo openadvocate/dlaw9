@@ -1,0 +1,7 @@
+dlaw_glossary.settings:
+  path: '/admin/dashboard/settings/glossary'
+  defaults:
+    _form: '\Drupal\dlaw_glossary\Form\GlossarySettingsForm'
+    _title: 'Glossary'
+  requirements:
+    _permission: 'admin dlaw'

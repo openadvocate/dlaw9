@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.topic.field_topic_term
+    - paragraphs.paragraphs_type.topic
+id: paragraph.topic.default
+targetEntityType: paragraph
+bundle: topic
+mode: default
+content:
+  field_topic_term:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

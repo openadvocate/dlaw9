@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block.block.views_block__events_block_events
+    - field.storage.paragraph.field_events_block
+    - paragraphs.paragraphs_type.events_block
+id: paragraph.events_block.field_events_block
+field_name: field_events_block
+entity_type: paragraph
+bundle: events_block
+label: 'Events Block'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: da0560ae-f3bb-4236-b254-cad749e9bf96
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

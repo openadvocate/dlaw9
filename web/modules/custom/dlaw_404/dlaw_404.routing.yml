@@ -1,0 +1,7 @@
+dlaw_404:
+  path: '/404-not-found'
+  defaults:
+    _controller: 'Drupal\dlaw_404\Controller\Custom404Controller::build'
+    _title: "Sorry, we can't find the page."
+  requirements:
+    _permission: 'access content'

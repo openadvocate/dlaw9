@@ -1,0 +1,154 @@
+.twitter__feed {
+  border-top: 1px dashed $primaryColour;
+  padding: 1rem 1rem 5rem;
+
+  @include media-breakpoint-up(md) {
+    padding: 3.125rem 2rem;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 4.0625rem 0;
+  }
+
+  h4 {
+    font-weight: 400;
+  }
+
+  .slick-prev {
+    bottom: -56px;
+    left: 48%;
+    position: absolute;
+    transform: translateX(-100%);
+    z-index: 2;
+  }
+
+  .slick-next {
+    bottom: -56px;
+    position: absolute;
+    right: 48%;
+    transform: translateX(100%);
+    z-index: 2;
+  }
+}
+
+.twitter__feed-container {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+  }
+}
+
+.twitter__feed-card {
+  @include cards;
+  background-color: #fff;
+  border-color: transparent;
+  box-shadow: unset;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  padding: 1.25rem 1.75rem;
+
+  @include media-breakpoint-up(md) {
+    margin-right: 1.875rem;
+    padding: 1.25rem;
+    width: 50%;
+  }
+
+  @include media-breakpoint-up(xl) {
+    height: auto;
+    max-width: 265px;
+    width: auto;
+  }
+
+  &:nth-child(2) {
+    @include media-breakpoint-only(md) {
+      margin-right: 0;
+    }
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &:nth-last-child(-n + 2) {
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+
+    @include media-breakpoint-up(xl) {
+      display: flex;
+    }
+  }
+}
+
+.twitter__feed-tweet {
+  font-size: 1.1875rem;
+  line-height: 1.32;
+}
+
+.twitter__feed-username {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.32;
+  margin-bottom: 0;
+}
+
+.twitter__feed-timestamp {
+  color: $primaryColour;
+  font-style: 1.1875rem;
+  line-height: 1.32;
+}
+
+.twitter__feed-top {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 2.375rem;
+
+  @include media-breakpoint-up(md) {
+    align-items: unset;
+    flex-direction: row;
+  }
+
+  @include media-breakpoint-up(xl) {
+    max-width: $maxWidth;
+  }
+
+  .default__btn {
+    align-items: center;
+    display: flex;
+    margin-top: 1rem;
+
+    @include media-breakpoint-up(md) {
+      margin-left: auto;
+      margin-top: 0;
+    }
+
+    &::before {
+      background-image: url("../images/share.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      height: 15px;
+      margin-right: 0.75rem;
+      width: 16px;
+    }
+  }
+}
+
+.twitter__feed-bot {
+  display: flex;
+  margin-top: auto;
+
+  img {
+    height: 48px;
+    margin-left: auto;
+    width: 48px;
+  }
+}

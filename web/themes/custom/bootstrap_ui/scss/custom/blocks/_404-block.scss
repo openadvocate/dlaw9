@@ -1,0 +1,16 @@
+.block__404 {
+  margin: 1.5rem auto 3rem;
+  max-width: $maxWidth;
+  padding: 0 1rem;
+
+  .list-group {
+    padding-left: 2rem;
+  }
+
+  .list-group-item {
+    background: transparent;
+    border: 0;
+    display: list-item;
+    list-style: disc;
+  }
+}

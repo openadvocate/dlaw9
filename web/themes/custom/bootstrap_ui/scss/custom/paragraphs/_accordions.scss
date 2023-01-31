@@ -1,0 +1,48 @@
+.page__accdin {
+  margin: 3.125rem 0; //50px
+}
+
+.page__accdin-title {
+  border-top: 1px solid $primaryColour;
+  cursor: pointer;
+  // padding: 1rem 0 1.5rem;
+  padding: 1rem 0;
+  position: relative;
+
+  &::before,
+  &::after {
+    background: #000;
+    content: "";
+    height: 5px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 20px;
+    transition: transform 500ms ease;
+  }
+  &::before {
+    transform: rotate(180deg);
+  }
+  &::after {
+    transform: rotate(90deg);
+  }
+  &.collapsed {
+    &:after {
+      transform: rotate(0deg);
+    }
+  }
+
+  h4 {
+    margin-bottom: 0 !important;
+    max-width: 93%;
+  }
+}
+
+.page__accdin-body {
+  display: none;
+  padding: 1.25rem 0; //20px
+
+  p {
+    font-size: 1.1875rem;
+  }
+}

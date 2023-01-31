@@ -1,0 +1,65 @@
+<?php
+
+use Drupal\comment\Plugin\Field\FieldType\CommentItemInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * @file
+ * Collect visitor feedback with Comments.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function dlaw_feedback_theme($existing, $type, $theme, $path) {
+  return [
+    'dlaw_feedback_chart' => [
+      'variables' => [
+        'how_helpful' => [],
+        'why_not_helpful' => [],
+      ]
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ *
+ * Remove Rate widget if Feedback is disabled.
+ */
+function dlaw_feedback_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($entity->bundle() == 'page' && $entity->field_feedback->status == CommentItemInterface::CLOSED) {
+    if (isset($build['rate_feedback'])) {
+      $build['rate_feedback']['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function dlaw_feedback_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, ['node_page_form', 'node_page_edit_form'])) {
+    // Change the language to suit the feedback feature.
+    $widget = &$form['field_feedback']['widget'][0];
+    $widget['#title'] = t('Feedback');
+    $widget['status'][0]['#access'] = FALSE;
+    $widget['status'][1]['#description'] = t('Visitors cannot leave feedbacks.');
+    $widget['status'][2]['#description'] = t('Let visitors vote and leave feedbacks.');
+
+    // Move the feedback widget from the sidebar to the main region.
+    $widget['#group'] = NULL;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dlaw_feedback_form_comment_comment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Force plain text format for the comment body input.
+  $form['comment_body']['widget'][0]['#allowed_formats'] = ['plain_text'];
+
+  $form['#attached']['library'][] = 'dlaw_feedback/dlaw_feedback';
+}

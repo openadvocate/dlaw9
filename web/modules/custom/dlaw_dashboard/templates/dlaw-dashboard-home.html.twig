@@ -1,0 +1,29 @@
+{{ attach_library('dlaw_dashboard/dlaw_dashboard') }}
+
+<div class="layout-row clearfix">
+  <div class="layout-column layout-column--half">
+    <div class="panel">
+      <a href="/node/add/page" class="btn btn-primary btn-lg add_page"><i class="fa fa-file-text"></i> Add Page</a>
+      <a href="/node/add/contact" class="btn btn-success btn-lg add_contact"><i class="fa fa-user"></i> Add Contact</a>
+    </div>
+
+    <div class="panel">
+      {{ drupal_block('dlaw_dashboard_page_views') }}
+    </div>
+
+    <div class="panel">
+      {{ drupal_block('dlaw_dashboard_search_stats') }}
+    </div>
+
+    <div class="panel">
+      {{ drupal_block('dlaw_dashboard_site_summary') }}
+    </div>
+
+  </div>
+
+  <div class="layout-column layout-column--half">
+    <div class="panel">
+      {{ drupal_block('dlaw_dashboard_popular_pages') }}
+    </div>
+  </div>
+</div>

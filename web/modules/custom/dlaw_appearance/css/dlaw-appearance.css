@@ -1,0 +1,9 @@
+#edit-appearance-theme-palette {
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-rows: max-content;
+}
+
+#edit-appearance-theme-palette img {
+  border-radius: 30px;
+}

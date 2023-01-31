@@ -1,0 +1,16 @@
+dlaw_dashboard:
+  header: true
+  css:
+    theme:
+      css/dashboard.css: {}
+  js:
+    js/Chart.min.js: {}
+
+dlaw_topics_icons:
+  css:
+    theme:
+      css/topics-icon.css: {}
+  js:
+    js/topics-icon.js: {}
+  dependencies:
+    - core/jquery

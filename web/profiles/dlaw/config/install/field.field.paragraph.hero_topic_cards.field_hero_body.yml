@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_body
+    - paragraphs.paragraphs_type.hero_topic_cards
+id: paragraph.hero_topic_cards.field_hero_body
+field_name: field_hero_body
+entity_type: paragraph
+bundle: hero_topic_cards
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,6 @@
+dlaw_dashboard.settings.social-media:
+  title: Social Media
+  description: "Social Media."
+  route_name: dlaw_social_media_links.settings
+  parent: dlaw_dashboard.settings
+  # weight: 0

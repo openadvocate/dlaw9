@@ -1,0 +1,8 @@
+name: DLAW Twitter Feed
+type: module
+description: Displays a list of tweets on a block
+core_version_requirement: ^8.8 || ^9
+package: DLAW
+dependencies:
+  - drupal:block
+configure: dlaw_twitter_feed.dlaw_twitter_feed_config_form

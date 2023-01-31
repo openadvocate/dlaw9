@@ -1,0 +1,5 @@
+exclude:
+  node: {  }
+  paragraph: {  }
+text_to_prepend_to_title: 'Copy of'
+clone_status: false

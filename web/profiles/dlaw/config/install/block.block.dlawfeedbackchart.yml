@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - dlaw_feedback
+  theme:
+    - bootstrap_ui
+id: dlawfeedbackchart
+theme: bootstrap_ui
+region: hidden
+weight: -9
+provider: null
+plugin: dlaw_feedback_chart
+settings:
+  id: dlaw_feedback_chart
+  label: 'Feedback Chart'
+  label_display: '0'
+  provider: dlaw_feedback
+visibility: {  }

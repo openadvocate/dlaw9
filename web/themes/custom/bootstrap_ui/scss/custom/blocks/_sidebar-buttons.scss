@@ -1,0 +1,67 @@
+.sidebar-btn {
+  display: flex;
+
+  a,
+  .sidebar-btn__print {
+    align-items: center;
+    background-color: #fff;
+    border: 1.5px solid $darkerPrimaryAccent;
+    display: flex;
+    font-size: 0.9375rem; //15px
+    height: 40px;
+    margin: 0;
+    padding: 0.625rem 1rem 0.625rem 1.125rem; //10px 18px
+  }
+
+  .sidebar-btn__print {
+    border-bottom-left-radius: 0.625rem; //10px
+    border-top-left-radius: 0.625rem; //10px
+    border-right: 0;
+
+    input {
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+    }
+  }
+
+  a {
+    border-bottom-right-radius: 0.625rem; //10px
+    border-top-right-radius: 0.625rem; //10px
+    color: $blackOption;
+    padding-left: 2.5rem; //40px
+    position: relative;
+
+    &::before {
+      background-image: url("../images/doc.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      height: 16px;
+      left: 19px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+    }
+  }
+
+  .sidebar-btn__print {
+    align-items: center;
+    display: flex;
+
+    &::before {
+      background-image: url("../images/new-tab.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      height: 16px;
+      margin-right: 0.625rem; //10px
+      width: 16px;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{{ attach_library('dlaw_dashboard/dlaw_dashboard') }}
+
+<div class="row">
+
+  <div class="col-md-5">
+    <h3>How helpful:</h3>
+    <canvas id="canvas-feedback-how-helpful" width="400" height="100" style="display: block; width: 400px; height: 100px;"></canvas>
+
+    <script>
+      var canvas = document.getElementById('canvas-feedback-how-helpful');
+      var context = canvas.getContext('2d');
+      context.rect(0, 0, canvas.width, canvas.height);
+
+      new Chart("canvas-feedback-how-helpful", {
+        type: 'pie',
+        data: {
+          labels: [{{ how_helpful.labels | raw }}],
+          datasets: [
+            {
+              backgroundColor: ['#EE4644', '#FFD800', '#33CC33'],
+              data: [{{ how_helpful.counts }}]
+            }
+          ]
+        },
+        options: {
+          legend:{
+            display: true,
+            position: 'right',
+            labels: {
+              usePointStyle: true,
+            }
+          }
+        }
+      });
+    </script>
+  </div>
+
+  <div class="col-md-2"></div>
+
+  <div class="col-md-5">
+    <h3>Why not helpful:</h3>
+
+    <canvas id="canvas-feedback-why-not-helpful" width="400" height="100" style="display: block; width: 400px; height: 100px;"></canvas>
+
+    <script>
+      var canvas = document.getElementById('canvas-feedback-why-not-helpful');
+      var context = canvas.getContext('2d');
+      context.rect(0, 0, canvas.width, canvas.height);
+
+      new Chart("canvas-feedback-why-not-helpful", {
+        type: 'pie',
+        data: {
+          labels: [{{ why_not_helpful.labels | raw }}],
+          datasets: [
+            {
+              backgroundColor: ['#5B9AD0', '#56789F', '#7E6BD5'],
+              data: [{{ why_not_helpful.counts }}]
+            }
+          ]
+        },
+        options: {
+          legend:{
+            display: true,
+            position: 'right',
+            labels: {
+              usePointStyle: true,
+            }
+          }
+        }
+      });
+    </script>
+  </div>
+
+</div>

@@ -1,0 +1,6 @@
+services:
+  google_analytics.pagepath.solr_search:
+    class: '\Drupal\dlaw_search_promote\EventSubscriber\SolrSearch'
+    arguments: [ '@config.factory', '@request_stack', '@module_handler', '@current_route_match' ]
+    tags:
+      - { name: 'event_subscriber' }

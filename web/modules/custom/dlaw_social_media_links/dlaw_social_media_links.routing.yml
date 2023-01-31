@@ -1,0 +1,7 @@
+dlaw_social_media_links.settings:
+  path: "/admin/dashboard/settings/social-media"
+  defaults:
+    _form: '\Drupal\dlaw_social_media_links\Form\SocialMediaLinksForm'
+    _title: "Social Media"
+  requirements:
+    _permission: "admin dlaw"

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: topic
+label: Topic
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

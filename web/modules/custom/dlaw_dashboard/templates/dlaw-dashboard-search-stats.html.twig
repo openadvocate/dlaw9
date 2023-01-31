@@ -1,0 +1,57 @@
+<h2>
+  <i class="fa fa-calendar"></i> Searches in the last 30 days
+</h2>
+
+<canvas id="canvas-recent-searches" width="400" height="120" style="display: block; width: 400px; height: 120px;"></canvas>
+
+<script>
+  var canvas = document.getElementById('canvas-recent-searches');
+  var context = canvas.getContext('2d');
+  context.rect(0, 0, canvas.width, canvas.height);
+
+  new Chart("canvas-recent-searches", {
+    type: 'line',
+    data: {
+      labels: [{{ search_count.labels }}],
+      datasets: [
+        {
+          label: "Searches",
+          fill: 'origin',
+          lineTension: 0,
+          backgroundColor: "rgba(239, 162, 45, 0.3)",
+          borderColor: '#efa22d',
+          data: [{{ search_count.values }}],
+        },
+      ]
+    },
+    options: {
+      legend:{
+        display: false
+      }
+    }
+  });
+</script>
+
+
+<h2 class="">
+  <i class="fa fa-clock-o"></i> Today's Top Searches
+</h2>
+
+<ol>
+{% for row in search_1day %}
+  <li>{{ row }}</li>
+{% endfor %}
+</ol>
+
+
+<h2 class="">
+  <i class="fa fa-search"></i> Top Searches in the last 30 days
+</h2>
+
+<ol>
+{% for row in search_30days %}
+  <li>{{ row }}</li>
+{% endfor %}
+</ol>
+
+

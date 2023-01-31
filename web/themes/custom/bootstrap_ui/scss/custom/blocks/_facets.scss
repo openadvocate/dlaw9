@@ -1,0 +1,156 @@
+.block-facets-block {
+  h2 {
+    @extend .h5;
+    border-bottom: 1px solid $darkerPrimaryAccent;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    label {
+      padding-right: 0.5rem;
+    }
+  }
+
+  .facet-item {
+    position: relative;
+
+    input {
+      background-color: #fff;
+      border-radius: 3px;
+      height: 0;
+      margin: 0;
+      user-select: none;
+      visibility: hidden;
+      width: 0;
+
+      &:before {
+        background-color: #fff;
+        border: 1.5px solid $darkerPrimaryAccent;
+        border-radius: 0.25rem;
+        display: inline-block;
+        content: "";
+        cursor: pointer;
+        height: 16px;
+        left: 0;
+        position: absolute;
+        top: 9px;
+        visibility: visible;
+        width: 16px;
+      }
+
+      &:checked:before {
+        background-color: $primaryColour;
+        border-color: $primaryColour;
+      }
+
+      &:checked:after {
+        border: solid #fff;
+        border-radius: 0;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        content: "";
+        height: 12px;
+        left: 5px;
+        position: absolute;
+        top: 10px;
+        transform: rotate(45deg);
+        visibility: visible;
+        width: 5px;
+      }
+    }
+  }
+
+  .facet-block {
+    border-bottom: 1px solid $darkerPrimaryAccent;
+    margin-bottom: 1rem;
+
+    &:last-of-type {
+      border: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .facet-block__title {
+    @extend .body__medium;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    padding-left: 1.5rem;
+
+    &::before {
+      border: solid black;
+      border-width: 0 0.1875rem 0.1875rem 0; //3px
+      content: "";
+      display: inline-block;
+      left: 2px;
+      padding: 0.1875rem; //3px
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      transition: all 0.5s ease;
+    }
+
+    &.active {
+      &::before {
+        transform: translateY(-50%) rotate(225deg);
+        top: 60%;
+      }
+    }
+  }
+
+  .facet-item {
+    align-items: center;
+    display: flex;
+    margin-bottom: 0.5rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    input[type="checkbox"] {
+      height: 16px;
+      margin-right: 0.5rem;
+      width: 16px;
+    }
+
+    input[checked="checked"] {
+      background-color: $primaryColour !important;
+    }
+
+    label {
+      margin-bottom: 0;
+      padding: 0;
+    }
+
+    span {
+      font-size: 1.1875rem;
+    }
+  }
+}
+
+.facets-widget-checkbox {
+  margin-bottom: 1.3125rem; //21px
+}
+
+.facets-soft-limit-link {
+  color: $primaryColour;
+  font-size: 1.1875rem;
+  text-decoration: underline;
+}
+
+.facet-block__content {
+  transition: all 0.3s ease-in-out;
+
+  &.hide {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}

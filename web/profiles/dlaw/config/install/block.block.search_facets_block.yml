@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - facets_block
+  theme:
+    - bootstrap_ui
+id: search_facets_block
+theme: bootstrap_ui
+region: hidden
+weight: -4
+provider: null
+plugin: facets_block
+settings:
+  id: facets_block
+  label: 'Filter your results'
+  label_display: visible
+  provider: facets_block
+  show_title: true
+  exclude_empty_facets: true
+  hide_empty_block: false
+  facets_to_include:
+    'facet_block:type': 'facet_block:type'
+    'facet_block:topics': 'facet_block:topics'
+    'facet_block:tags': 'facet_block:tags'
+    'facet_block:zip_code': 'facet_block:zip_code'
+  add_js_classes: false
+visibility: {  }

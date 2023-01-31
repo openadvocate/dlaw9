@@ -1,0 +1,46 @@
+.block-dlaw-section-directory {
+  background-color: $primaryBackground;
+  border-radius: 1.25rem; //20px
+  margin: 1.5rem auto 4rem; //24px 64px
+  padding: 1.5rem 2.5rem 2rem; //24px 40px 32px
+  width: 93%;
+
+  @include media-breakpoint-up(xl) {
+    margin: 0 auto 5.375rem; //86px
+    max-width: $maxWidth;
+  }
+
+  ul {
+    display: block;
+    margin: 0;
+
+    @include media-breakpoint-up(md) {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: max-content;
+    }
+
+    @include media-breakpoint-up(xl) {
+      grid-template-columns: 33.33% 33.33% 33.33%;
+    }
+  }
+
+  li {
+    background-color: transparent;
+    border: 0;
+    padding: 0.5rem 0.5rem 0.5rem 0 !important;
+
+    a {
+      @extend .h6;
+    }
+  }
+
+  > a {
+    @extend .h4;
+    border-bottom: 1px dashed $primaryColour;
+    display: inline-block;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}

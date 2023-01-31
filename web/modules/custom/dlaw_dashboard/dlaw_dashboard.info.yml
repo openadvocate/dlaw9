@@ -1,0 +1,6 @@
+name: "DLAW Dashboard"
+type: module
+package: DLAW
+description: "Dashboard for DLAW."
+core_version_requirement: ^9
+version: "1.0"

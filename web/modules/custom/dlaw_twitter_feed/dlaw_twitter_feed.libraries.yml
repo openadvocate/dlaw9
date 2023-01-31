@@ -1,0 +1,6 @@
+timeago:
+  version: 1.5.2
+  js:
+    js/dlaw_twitter_feed.js: {}
+  dependencies:
+    - core/jquery

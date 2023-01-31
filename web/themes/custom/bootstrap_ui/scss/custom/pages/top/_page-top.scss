@@ -1,0 +1,53 @@
+.view__page {
+  .view-filters {
+    @include pageTop;
+  }
+}
+
+.page-content__top {
+  margin: 0 auto;
+  position: relative;
+
+  @include media-breakpoint-up(xl) {
+    max-width: $maxWidth;
+  }
+
+  .form-row {
+    @include media-breakpoint-up(md) {
+      flex-wrap: nowrap;
+    }
+
+    input {
+      height: 50px;
+      text-align: center;
+    }
+  }
+
+  .form-submit {
+    @extend .default__btn;
+    display: inline-block;
+    height: 50px;
+
+    @include media-breakpoint-up(md) {
+      margin-left: 1rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 111px;
+    }
+  }
+}
+
+.page-content__top-body {
+  background-color: $primaryBackground;
+  border-radius: 1.25rem; //20px
+  padding: 0.75rem 1.5rem 1.25rem; //12px 24px 20px
+
+  @include media-breakpoint-up(xl) {
+  }
+
+  p {
+    @extend .body__large;
+    margin: 0;
+  }
+}

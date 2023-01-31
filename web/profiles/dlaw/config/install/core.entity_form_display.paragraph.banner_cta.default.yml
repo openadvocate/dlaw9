@@ -1,0 +1,67 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner_cta.field_banner_body
+    - field.field.paragraph.banner_cta.field_banner_button
+    - field.field.paragraph.banner_cta.field_banner_layout_option
+    - field.field.paragraph.banner_cta.field_banner_subtitle
+    - field.field.paragraph.banner_cta.field_banner_title
+    - field.field.paragraph.banner_cta.field_polka_dot_option
+    - paragraphs.paragraphs_type.banner_cta
+  module:
+    - link
+    - text
+id: paragraph.banner_cta.default
+targetEntityType: paragraph
+bundle: banner_cta
+mode: default
+content:
+  field_banner_body:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_banner_button:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_banner_layout_option:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_banner_subtitle:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_banner_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_polka_dot_option:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

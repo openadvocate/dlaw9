@@ -1,0 +1,409 @@
+.page-node-type-page {
+  .node__content {
+    @include media-breakpoint-up(xl) {
+      margin: 0 auto;
+      max-width: $maxWidth;
+    }
+  }
+
+  .node--type-page {
+    background-color: #fff;
+    padding: 0.001rem 0 2.5rem; //40px
+
+    @include media-breakpoint-up(xl) {
+      padding: 1.5rem 3.875rem 3.875rem; //24px 62px
+    }
+  }
+}
+
+.page__content-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-up(xl) {
+    flex-direction: row;
+  }
+}
+
+.page__lhs,
+.page__rhs {
+  padding: 0 1rem;
+
+  @include media-breakpoint-up(md) {
+    padding: 0 2rem;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 0;
+  }
+}
+
+.page__lhs {
+  order: 2;
+
+  @include media-breakpoint-up(xl) {
+    margin-right: 62px;
+    order: 1;
+    width: 774px;
+  }
+
+  h1 {
+    margin-bottom: 3.125rem; //50px
+  }
+
+  h2,
+  h3,
+  h4,
+  h5 {
+    // font-size: clamp(1rem, calc(4.12vw + 0.03rem), 3.13rem);
+    margin-bottom: 1.25rem; //20px
+  }
+
+  h4 {
+    font-weight: 400;
+  }
+
+  p,
+  li {
+    @extend .body__large;
+  }
+
+  blockquote {
+    @extend .body__large;
+    font-style: italic;
+    margin: 0.9375rem auto;
+    padding: 0 0 0 1.03125rem;
+    position: relative;
+
+    @include media-breakpoint-up(xl) {
+      margin: 3.125rem auto;
+      padding: 0 0 0 1.5rem;
+    }
+
+    &::before {
+      background-color: $primaryColour;
+      border-radius: 5rem;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 100%; /* Height of border */
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 8px;
+    }
+
+    p {
+      a {
+        word-break: break-word;
+      }
+    }
+  }
+
+  nav.links-inline {
+    margin-top: 1.5rem;
+    padding: 0;
+
+    span {
+      padding: 0;
+    }
+
+    a {
+      @include defaultBtn;
+    }
+  }
+
+  .media-oembed-content {
+    min-height: 300px;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      min-height: 410px;
+    }
+  }
+
+  .inline__links {
+    display: none;
+  }
+
+  .addtoany_list {
+    display: block;
+
+    @include media-breakpoint-up(xl) {
+      display: none;
+    }
+  }
+
+  .page__scrollarea {
+    margin-bottom: 3rem;
+  }
+
+  .last-updated-date {
+    display: none;
+
+    &.cloned {
+      display: block;
+    }
+  }
+
+  .last-updated-date {
+    margin-top: 1.5rem;
+  }
+}
+
+.page__body {
+  table {
+    td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      font-weight: 300;
+
+      strong {
+        font-weight: 600;
+      }
+
+      a {
+        word-break: break-word;
+      }
+    }
+  }
+
+  p {
+    a {
+      word-break: break-word;
+    }
+  }
+}
+
+.page__rhs {
+  // margin-bottom: 5rem; //80px
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  order: 1;
+  position: relative;
+
+  @include media-breakpoint-up(xl) {
+    margin-bottom: 0;
+    margin-top: 0;
+    order: 2;
+    width: 309px;
+  }
+
+  .sidebar-btn {
+    display: none;
+    margin-bottom: 1.5rem;
+
+    @include media-breakpoint-up(xl) {
+      display: flex;
+    }
+  }
+}
+
+.page__feat-img {
+  border-radius: 1.25rem; //20px
+  margin-bottom: 1.5rem;
+
+  @include media-breakpoint-up(xl) {
+    margin-bottom: 3.125rem; //50px
+  }
+}
+
+.page__topics,
+.page__tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  a {
+    border: 1px solid $primaryColour;
+    border-radius: 5rem;
+    font-size: 0.8125rem; //13px
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    margin-right: 0.5rem;
+    padding: 0 0.5rem;
+  }
+}
+
+.page__topics {
+  margin-bottom: 1.25rem; //20px
+}
+
+.page__files,
+.page__links {
+  margin: 3.125rem 0; //50px
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    max-width: 558px;
+  }
+
+  .field__label {
+    @extend .accent;
+    border-bottom: 1px dashed $primaryColour;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .field__item {
+    a {
+      color: $primaryColour;
+      font-size: 1.0625rem; //17px
+      font-style: italic;
+      font-weight: 600;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: unset;
+      }
+    }
+  }
+}
+
+.page__links {
+  .field__item {
+    a {
+      &::before {
+        @include backgroundImg(url("../images/link.svg"));
+        content: "";
+        display: inline-block;
+        height: 16px;
+        margin-right: 0.625rem; //10px
+        width: 16px;
+      }
+    }
+  }
+}
+
+.rating-table {
+  margin: 3.125rem 0 0; //50px
+}
+
+.rating-table-tr {
+  &:first-of-type {
+    .rating-table-td {
+      color: $primaryBlack;
+      font-size: 1.5625rem; //25px;
+      font-family: $font-almanach;
+      line-height: 35px;
+    }
+  }
+
+  label {
+    background-color: transparent !important;
+    border: 1px solid $primaryColour !important;
+    border-radius: 4.0625rem; //65px
+    color: $primaryBlack !important;
+    cursor: pointer;
+    font-size: 1.1875rem; //19px
+    margin-top: 0.4375rem; //7px
+    padding: 0.4375rem 1.25rem 0.5rem !important; //7px 20px 8px
+
+    &.rate-voted,
+    &:hover {
+      background-color: $primaryColour !important;
+      color: #fff !important;
+    }
+  }
+}
+
+.field--name-field-feedback {
+  label {
+    font-family: $font-almanach;
+  }
+
+  input {
+    top: 50%;
+    transform: translateY(-80%);
+  }
+}
+
+.comment-form {
+  .button--primary {
+    @include defaultBtn;
+  }
+}
+
+.comment-length-check {
+  font-size: 0.875rem;
+}
+
+.block-dlaw-section-prevnextnav {
+  margin: 3.125rem 0; //50px
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
+
+  li {
+    background-color: transparent;
+    border: 0;
+    font-family: $font-almanach;
+    padding: 0;
+
+    &:last-child {
+      margin-left: auto;
+    }
+  }
+}
+
+.block-dlaw-section-prevnextnav {
+  .list-group-item {
+    border: 1px solid $primaryColour;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    margin-right: 0.5rem;
+    padding: 0.3rem 1rem;
+    position: relative;
+
+    &:first-of-type {
+      border-left: 0;
+
+      &::after {
+        left: -2px;
+        right: auto;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &:last-of-type {
+      border-right: 0;
+    }
+
+    &::after {
+      display: inline-block;
+      position: absolute;
+      width: 19px;
+      height: 19px;
+      background: transparent;
+      text-indent: -9999px;
+      border-top: 1px solid $primaryColour;
+      border-left: 1px solid $primaryColour;
+      transition: all 250ms ease-in-out;
+      text-decoration: none;
+      top: 5px;
+      color: transparent;
+
+      content: "";
+
+      transform: rotate(135deg);
+      right: -2px;
+    }
+  }
+}
+
+.addtoany_list {
+  display: none;
+  margin-bottom: 2.5rem;
+
+  @include media-breakpoint-up(xl) {
+    display: block;
+  }
+}

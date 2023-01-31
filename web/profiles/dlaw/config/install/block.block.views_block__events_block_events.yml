@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.events
+  module:
+    - views
+  theme:
+    - bootstrap_ui
+id: views_block__events_block_events
+theme: bootstrap_ui
+region: hidden
+weight: -12
+provider: null
+plugin: 'views_block:events-block_events'
+settings:
+  id: 'views_block:events-block_events'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

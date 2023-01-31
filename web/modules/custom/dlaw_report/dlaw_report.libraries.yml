@@ -1,0 +1,5 @@
+dlaw_report:
+  header: true
+  css:
+    theme:
+      css/report.css: {}

@@ -1,0 +1,9 @@
+dlaw_twitter_feed.dlaw_twitter_feed_config_form:
+  path: "/admin/config/twitter_feed/settings"
+  defaults:
+    _form: '\Drupal\dlaw_twitter_feed\Form\TwitterFeedConfigForm'
+    _title: "Twitter Feed Settings"
+  requirements:
+    _permission: "access toolbar"
+  options:
+    _admin_route: TRUE

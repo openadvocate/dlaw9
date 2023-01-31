@@ -1,0 +1,5 @@
+dlaw_dashboard.report:
+  title: Report
+  description: 'Site report.'
+  route_name: dlaw_dashboard.report
+  parent: dlaw_dashboard

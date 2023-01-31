@@ -1,0 +1,6 @@
+dlaw_feedback:
+  js:
+    js/dlaw-feedback.js: { }
+  css:
+    theme:
+      css/dlaw-feedback.css: { }

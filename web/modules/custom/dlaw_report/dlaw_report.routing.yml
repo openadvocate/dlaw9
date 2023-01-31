@@ -1,0 +1,7 @@
+dlaw_dashboard.report:
+  path: "/admin/dashboard/report"
+  defaults:
+    _controller: '\Drupal\dlaw_report\Controller\ReportController::pageRenderer'
+    _title: "Report"
+  requirements:
+    _permission: "admin dlaw"

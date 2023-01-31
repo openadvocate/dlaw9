@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.topics_category
+  module:
+    - views
+  theme:
+    - bootstrap_ui
+id: views_block__topics_category_block_topics
+theme: bootstrap_ui
+region: hidden
+weight: -10
+provider: null
+plugin: 'views_block:topics_category-block_topics'
+settings:
+  id: 'views_block:topics_category-block_topics'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

@@ -1,0 +1,35 @@
+.block-dlaw-report-summary .card {
+  padding: 1.5rem;
+}
+
+.block-dlaw-report-popular-pages ol {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block-dlaw-report-popular-pages li {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem !important;
+  padding: 1rem 0.5rem !important;
+}
+
+.block-dlaw-report-popular-pages li:hover {
+  background-color: rgba(255, 254, 237, 0.7);
+}
+
+.block-dlaw-report-popular-pages li .ga-num {
+  font-size: 0.675rem;
+  font-style: italic;
+  font-weight: bold;
+  text-align: right;
+}
+
+.block-dlaw-report-popular-pages li .ga-num::before {
+  content: "Count: ";
+  display: inline-block;
+  font-weight: normal;
+  margin-right: 0.3rem;
+}

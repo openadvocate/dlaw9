@@ -1,0 +1,15 @@
+global-styling:
+  version: VERSION
+  js:
+    js/popper.min.js: { attributes: { defer: true } }
+    js/slick.min.js: { attributes: { defer: true } }
+    js/bootstrap.min.js: { attributes: { defer: true } }
+    js/global.js: { attributes: { defer: true } }
+    js/fontawesome/all.min.js: { attributes: { defer: true } }
+  css:
+    component:
+      css/style.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once

@@ -1,0 +1,60 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hero_topic_cards.field_hero_body
+    - field.field.paragraph.hero_topic_cards.field_hero_search_title
+    - field.field.paragraph.hero_topic_cards.field_hero_tc_image
+    - field.field.paragraph.hero_topic_cards.field_hero_title
+    - field.field.paragraph.hero_topic_cards.field_hero_topics
+    - paragraphs.paragraphs_type.hero_topic_cards
+  module:
+    - entity_reference_revisions
+id: paragraph.hero_topic_cards.default
+targetEntityType: paragraph
+bundle: hero_topic_cards
+mode: default
+content:
+  field_hero_body:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_hero_search_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_hero_tc_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_hero_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_hero_topics:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

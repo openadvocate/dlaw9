@@ -1,0 +1,6 @@
+name: DLAW Schema.org
+type: module
+package: DLAW
+description: Custom addition for schema_metatag module.
+core_version_requirement: ^9
+version: '0.1.0'

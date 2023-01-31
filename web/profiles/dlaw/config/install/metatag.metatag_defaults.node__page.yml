@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node__page
+label: 'Content: Page'
+tags:
+  description: '[node:summary]'
+  schema_article_about: '[dlaw:keywords]'
+  schema_article_author: 'a:2:{s:5:"@type";s:12:"Organization";s:4:"name";s:11:"[site:name]";}'
+  schema_article_date_modified: '[node:changed:html_datetime]'
+  schema_article_date_published: '[node:created:html_datetime]'
+  schema_article_description: '[node:summary]'
+  schema_article_headline: '[node:title]'
+  schema_article_image: 'a:4:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:37:"[node:field_featured_image:large:url]";s:5:"width";s:39:"[node:field_featured_image:large:width]";s:6:"height";s:40:"[node:field_featured_image:large:height]";}'
+  schema_article_name: '[node:title]'
+  schema_article_type: Article
+  schema_organization_additional_type: LegalService
+  schema_organization_description: '[site:slogan]'
+  schema_organization_logo: 'a:2:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:16:"[dlaw:site-logo]";}'
+  schema_organization_name: '[site:name]'
+  schema_organization_same_as: '[dlaw:social-media]'
+  schema_organization_type: Organization
+  schema_organization_url: '[site:url]'

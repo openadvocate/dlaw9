@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - dlaw_topics
+    - taxonomy
+  theme:
+    - bootstrap_ui
+id: topicsnavigation
+theme: bootstrap_ui
+region: hidden
+weight: -3
+provider: null
+plugin: dlaw_topics_navigation
+settings:
+  id: dlaw_topics_navigation
+  label: 'Topics Navigation'
+  label_display: '0'
+  provider: dlaw_topics
+visibility:
+  'entity_bundle:taxonomy_term':
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
+    bundles:
+      topics: topics

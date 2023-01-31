@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.topic.field_topic_term
+    - paragraphs.paragraphs_type.topic
+id: paragraph.topic.default
+targetEntityType: paragraph
+bundle: topic
+mode: default
+content:
+  field_topic_term:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,32 @@
+
+<h2 class=""><i class="fa fa-bar-chart-o"></i> Page Views in {{ data.last_year.label }}</h2>
+<canvas id="canvas-page-views" width="400" height="100"></canvas>
+
+<script>
+  var canvas = document.getElementById('canvas-page-views');
+  var context = canvas.getContext('2d');
+  context.rect(0, 0, canvas.width, canvas.height);
+
+  new Chart("canvas-page-views", {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      datasets: [
+        {
+          label: "{{ data.last_year.label }}",
+          lineTension: 0,
+          backgroundColor: "rgba(0, 0, 0, 0)",
+          borderColor: '#F60',
+          data: [{{ data.last_year.views }}]
+        },
+        {
+          label: "{{ data.prev_year.label }}",
+          lineTension: 0,
+          backgroundColor: "rgba(0, 0, 0, 0)",
+          borderColor: '#09F',
+          data: [{{ data.prev_year.views }}]
+        }
+      ]
+    }
+  });
+</script>

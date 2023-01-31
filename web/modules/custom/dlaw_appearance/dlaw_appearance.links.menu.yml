@@ -1,0 +1,6 @@
+dlaw_dashboard.settings.appearance:
+  title: Appearance
+  description: "Appearance."
+  route_name: dlaw_appearance.settings
+  parent: dlaw_dashboard.settings
+  weight: 0

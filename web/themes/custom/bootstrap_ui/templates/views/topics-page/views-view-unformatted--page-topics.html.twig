@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+      'hero__topics-item'
+    ]
+  %}
+  {% set label = row.content["#row"]._entity.fields.name.value %}
+  {% set icon = row.content["#row"]._entity.field_icon_url.value %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+    <a href={{path('entity.taxonomy_term.canonical', {'taxonomy_term': row.content["#row"]._entity.fields.tid.value})}}>
+      <div class="topic-card__item-wrapper">
+        {% if icon %}
+          <img src={{icon}} alt="topics icon" />
+        {% endif %}
+        <h5>{{label | replace({'/': ' / '})}}</h5>
+      </div>
+    </a>
+
+    <div class="topic-card__children">
+      {{row.children}}
+    </div>
+
+    <a class="topic-card__btn" href={{path('entity.taxonomy_term.canonical', {'taxonomy_term': row.content["#row"]._entity.fields.tid.value})}}>Learn More</a>
+  </div>
+{% endfor %}

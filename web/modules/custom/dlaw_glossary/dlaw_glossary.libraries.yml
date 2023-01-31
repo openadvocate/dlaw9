@@ -1,0 +1,8 @@
+# For some reason, it works only if dlaw_glossary_ext is put in the header.
+dlaw_glossary_ext:
+  header: true
+  js:
+    https://writeclearly.openadvocate.org/oarc/oarc.js: { type: external }
+dlaw_glossary_int:
+  js:
+    js/dlaw-glossary.js: { }

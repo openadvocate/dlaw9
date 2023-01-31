@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.twitter_feed_block.field_twitter_feed
+    - paragraphs.paragraphs_type.twitter_feed_block
+id: paragraph.twitter_feed_block.default
+targetEntityType: paragraph
+bundle: twitter_feed_block
+mode: default
+content:
+  field_twitter_feed:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

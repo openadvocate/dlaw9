@@ -1,0 +1,5 @@
+# Schema for the configuration files of the Bootstrap SASS Subtheme.
+
+bootstrap_ui.settings:
+  type: theme_settings
+  label: 'Bootstrap SASS Subtheme settings'

@@ -1,0 +1,6 @@
+name: DLAW Node Clone
+type: module
+package: DLAW
+description: Alter quick_node_clone module.
+core_version_requirement: ^9
+version: '0.1.0'

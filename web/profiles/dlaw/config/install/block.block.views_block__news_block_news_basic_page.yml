@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - views
+  theme:
+    - bootstrap_ui
+id: views_block__news_block_news_basic_page
+theme: bootstrap_ui
+region: hidden
+weight: 0
+provider: null
+plugin: 'views_block:news-block_news_basic_page'
+settings:
+  id: 'views_block:news-block_news_basic_page'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

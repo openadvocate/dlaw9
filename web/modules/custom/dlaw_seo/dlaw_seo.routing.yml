@@ -1,0 +1,7 @@
+dlaw_seo.report:
+  path: "/admin/dashboard/seo/report"
+  defaults:
+    _controller: '\Drupal\dlaw_seo\Controller\SeoReportController::build'
+    _title: "SEO Report"
+  requirements:
+    _permission: "admin dlaw"

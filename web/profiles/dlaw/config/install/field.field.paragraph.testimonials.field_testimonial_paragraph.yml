@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_testimonial_paragraph
+    - paragraphs.paragraphs_type.testimonial
+    - paragraphs.paragraphs_type.testimonials
+  module:
+    - entity_reference_revisions
+id: paragraph.testimonials.field_testimonial_paragraph
+field_name: field_testimonial_paragraph
+entity_type: paragraph
+bundle: testimonials
+label: Testimonial
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      testimonial: testimonial
+    negate: 0
+    target_bundles_drag_drop:
+      banner_cta:
+        weight: 10
+        enabled: false
+      banner_image:
+        weight: 11
+        enabled: false
+      column:
+        weight: 12
+        enabled: false
+      columns_layout:
+        weight: 13
+        enabled: false
+      events_block:
+        weight: 14
+        enabled: false
+      image_with_text:
+        weight: 15
+        enabled: false
+      news_block:
+        weight: 16
+        enabled: false
+      testimonial:
+        weight: 17
+        enabled: true
+      testimonials:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

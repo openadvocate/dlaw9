@@ -1,0 +1,74 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\dlaw_glossary\DlawGlossary;
+
+/**
+ * @file
+ * Glossary feature using ReadClearly.
+ */
+
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function dlaw_glossary_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (!in_array($form_id, ['node_page_form', 'node_page_edit_form'])) {
+    return;
+  }
+
+  $widget = &$form['field_glossary']['widget'][0]['value'];
+
+  if (DlawGlossary::showWidgetOnPage($form_state->getFormObject()->getEntity())) {
+    // Change field type from text to radios.
+    $glossaries = array('' => 'Site Default') + DlawGlossary::getGlossaries();
+
+    $widget['#type'] = 'radios';
+    $widget['#options'] = $glossaries;
+    if (empty($widget['#default_value'])) {
+      $widget['#default_value'] = '';
+    }
+  }
+  else {
+    $widget['#title'] = '';
+    $widget['#type'] = 'item';
+    $widget['#markup'] = 'Glossary is disabled. ' . Link::createFromRoute('Configure glossary settings', 'dlaw_glossary.settings', [], ['attributes' => ['target' => '_blank']])->toString();
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function dlaw_glossary_preprocess_node(&$vars) {
+  $node = $vars['node'];
+
+  if ($node->getType() == 'page' and $vars['view_mode'] == 'full') {
+    if (DlawGlossary::showWidgetOnPage($node)) {
+      $theme = \Drupal::state()->get('dlaw.glossary.theme', 'default');
+      $location = \Drupal::state()->get('dlaw.glossary.location', 'bottom-left');
+      $footnotes = (bool)\Drupal::state()->get('dlaw.glossary.footnotes', 0);
+
+      if (!empty($node->field_glossary->value)) {
+        $glossary = $node->field_glossary->value;
+      }
+      elseif ($custom_glossary = trim(\Drupal::state()->get('dlaw.glossary.custom_glossary', ''))) {
+        $glossary = $custom_glossary;
+      }
+      else {
+        $glossary = \Drupal::state()->get('dlaw.glossary.default', '');
+      }
+
+      $vars['#attached']['drupalSettings']['dlaw']['glossary'] = [
+        'theme' => $theme,
+        'location' => $location,
+        'footnotes' => $footnotes,
+        'glossary' => $glossary,
+      ];
+
+      // For some reason, it works only if dlaw_glossary_ext is put in the header.
+      $vars['#attached']['library'][] = 'dlaw_glossary/dlaw_glossary_ext';
+      $vars['#attached']['library'][] = 'dlaw_glossary/dlaw_glossary_int';
+    }
+  }
+}

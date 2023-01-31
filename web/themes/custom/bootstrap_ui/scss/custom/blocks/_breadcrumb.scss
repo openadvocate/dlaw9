@@ -1,0 +1,42 @@
+.breadcrumb {
+  background-color: transparent;
+  display: none;
+  margin: 0 auto;
+  padding: 1rem 0;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    display: block;
+    margin-left: -0.9375rem; //15px
+    margin-right: -0.9375rem; //15px
+    padding: 1rem 2rem;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $maxWidth;
+    padding: 1.3125rem 0 1.4375rem; //21px 23px
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      &::after {
+        content: "/";
+        display: inline-block;
+        padding: 0 0.2rem;
+      }
+
+      &:last-child {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}

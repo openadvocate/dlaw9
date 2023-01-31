@@ -1,0 +1,6 @@
+name: DLAW Glossary
+type: module
+package: DLAW
+description: 'Glossary feature using ReadClearly.'
+core_version_requirement: ^9
+version: '0.1.0'

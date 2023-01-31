@@ -1,0 +1,6 @@
+name: DLAW SEO
+type: module
+package: DLAW
+description: Report site info to enhance SEO.
+core_version_requirement: ^9
+version: '0.1.0'

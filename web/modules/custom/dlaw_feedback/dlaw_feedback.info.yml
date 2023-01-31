@@ -1,0 +1,6 @@
+name: DLAW Feedback
+type: module
+package: DLAW
+description: 'Collect visitor feedback with Comments.'
+core_version_requirement: ^9
+version: '0.1.0'

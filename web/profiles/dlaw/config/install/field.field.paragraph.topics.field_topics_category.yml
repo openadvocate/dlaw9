@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block.block.views_block__topics_category_block_topics
+    - field.storage.paragraph.field_topics_category
+    - paragraphs.paragraphs_type.topics
+id: paragraph.topics.field_topics_category
+field_name: field_topics_category
+entity_type: paragraph
+bundle: topics
+label: 'Topics Category'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 2c1dffde-d2f6-4464-b1a4-aa1c1342f4cb
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

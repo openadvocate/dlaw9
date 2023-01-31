@@ -1,0 +1,280 @@
+/* TYPOGRAPHY */
+
+/* Google Fonts */
+
+//@import url("https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic");
+//@import url("https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900");
+// font families
+$font-lato: "Lato", Arial, Verdana, sans-serif;
+$font-raleway: "Raleway", Arial, Verdana, sans-serif;
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+$font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont,
+  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-serif: Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono",
+  "Courier New", monospace;
+$font-family-base: $font-family-sans-serif;
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-lg: 1.25rem;
+$font-size-sm: 0.875rem;
+$font-size-xs: 0.75rem;
+$font-weight-normal: normal;
+$font-weight-bold: bold;
+$font-weight-base: $font-weight-normal;
+$line-height-base: 1.5;
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.75rem;
+$font-size-h4: 1.5rem;
+$font-size-h5: 1.25rem;
+$font-size-h6: 1rem;
+
+$open-sans: "Open Sans";
+
+$font-almanach: "almanach";
+
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * almanach:
+ *   - http://typekit.com/eulas/00000000000000007735e6d7
+ *   - http://typekit.com/eulas/00000000000000007735e6db
+ *   - http://typekit.com/eulas/00000000000000007735e6d9
+ *   - http://typekit.com/eulas/00000000000000007735e6d6
+ *   - http://typekit.com/eulas/00000000000000007735e6e4
+ *   - http://typekit.com/eulas/00000000000000007735e6e7
+ *   - http://typekit.com/eulas/00000000000000007735e6da
+ *   - http://typekit.com/eulas/00000000000000007735e6e3
+ *   - http://typekit.com/eulas/00000000000000007735e6dd
+ *   - http://typekit.com/eulas/00000000000000007735e6e1
+ *   - http://typekit.com/eulas/00000000000000007735e6e8
+ *   - http://typekit.com/eulas/00000000000000007735e6e2
+ *   - http://typekit.com/eulas/00000000000000007735e6dc
+ *   - http://typekit.com/eulas/00000000000000007735e6e6
+ *   - http://typekit.com/eulas/00000000000000007735e6df
+ *   - http://typekit.com/eulas/00000000000000007735e6e5
+ *   - http://typekit.com/eulas/00000000000000007735e6e0
+ *   - http://typekit.com/eulas/00000000000000007735e6de
+ * almanach-hairline:
+ *   - http://typekit.com/eulas/00000000000000007735e6e9
+ *   - http://typekit.com/eulas/00000000000000007735e6ea
+ *
+ * © 2009-2022 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2022-05-15 15:52:34 UTC"}*/
+
+// @import url("https://p.typekit.net/p.css?s=1&k=wzz5cus&ht=tk&f=46781.46782.46783.46784.46785.46786.46787.46788.46789.46790.46791.46792.46793.46794.46795.46796.46797.46798.46799.46800&a=86714276&app=typekit&e=css");
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/85d622/00000000000000007735e6d7/30/l?subset_id=2&fvd=n6&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/0b1125/00000000000000007735e6db/30/l?subset_id=2&fvd=n2&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 200;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/23dc14/00000000000000007735e6d9/30/l?subset_id=2&fvd=n8&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/3e39e1/00000000000000007735e6d6/30/l?subset_id=2&fvd=i2&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 200;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/612a46/00000000000000007735e6e4/30/l?subset_id=2&fvd=n9&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/1584aa/00000000000000007735e6e7/30/l?subset_id=2&fvd=i1&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 100;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/364011/00000000000000007735e6da/30/l?subset_id=2&fvd=n3&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/de8fe4/00000000000000007735e6e3/30/l?subset_id=2&fvd=n5&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/ff6188/00000000000000007735e6dd/30/l?subset_id=2&fvd=i3&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/eebf1a/00000000000000007735e6e1/30/l?subset_id=2&fvd=i6&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 600;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/052691/00000000000000007735e6e8/30/l?subset_id=2&fvd=i5&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 500;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/329d8e/00000000000000007735e6e2/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/2d11af/00000000000000007735e6dc/30/l?subset_id=2&fvd=i9&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 900;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/3f429f/00000000000000007735e6e6/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 700;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/d21b08/00000000000000007735e6df/30/l?subset_id=2&fvd=i8&v=3")
+    format("woff2");
+  font-style: italic;
+  font-weight: 800;
+  font-stretch: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/ce780b/00000000000000007735e6e5/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/2d4f8c/00000000000000007735e6e0/30/l?subset_id=2&fvd=n1&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach";
+  src: url("https://use.typekit.net/af/142cd4/00000000000000007735e6de/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach-hairline";
+  src: url("https://use.typekit.net/af/5b64e4/00000000000000007735e6e9/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i1&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 100;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "almanach-hairline";
+  src: url("https://use.typekit.net/af/0069d1/00000000000000007735e6ea/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n1&v=3")
+    format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100;
+  font-stretch: normal;
+}
+
+.tk-almanach {
+  font-family: "almanach", sans-serif;
+  font-display: swap;
+}
+.tk-almanach-hairline {
+  font-family: "almanach-hairline", sans-serif;
+  font-display: swap;
+}

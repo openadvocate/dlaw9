@@ -1,0 +1,24 @@
+{% if pages %}
+  <ol class="ga_list ga_most_visited_list clearfix">
+  {% for page in pages %}
+    <li>
+      {{ page.title }}
+      <div class="ga-popular-data">
+        <div class="ga-popular-data-time {{ page.changed_color }}" title="Last updated time">{{ page.changed }}</div>
+        <div class="ga-popular-data-views" title="Views in the last 30 days">
+          <div class="ga-popular-data-views-bg" style="width: {{ page.views_percent }}%"></div>
+          <div class="ga-popular-data-views-num">{{ page.views }}</div>
+        </div>
+        <div class="ga-popular-feedback" title="{{ page.tooltip }}">{{ page.rate.total }}</div>
+        <div class="ga-popular-feedback-bar" title="{{ page.tooltip }}">
+          <div class="ga-popular-feedback-bar-good" style="width: {{ page.rate.good.percent }}%">{{ page.rate.good.count }}</div>
+          <div class="ga-popular-feedback-bar-ok" style="width: {{ page.rate.ok.percent }}%">{{ page.rate.ok.count }}</div>
+          <div class="ga-popular-feedback-bar-bad" style="width: {{ page.rate.bad.percent }}%">{{ page.rate.bad.count }}</div>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+  </ol>
+{% else %}
+  <p>Data not available.</p>
+{% endif %}

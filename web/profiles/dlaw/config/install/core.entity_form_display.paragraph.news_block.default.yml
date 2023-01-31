@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.news_block.field_news_block
+    - field.field.paragraph.news_block.field_polka_dot_option
+    - paragraphs.paragraphs_type.news_block
+id: paragraph.news_block.default
+targetEntityType: paragraph
+bundle: news_block
+mode: default
+content:
+  field_news_block:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_polka_dot_option:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

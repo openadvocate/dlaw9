@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+<div class="events__block-container">
+	<div class="events__block-intro">
+		<div class="events__block-intro-wrapper">
+			<p class="news__block-subtitle">{{"EVENTS" | t}}</p>
+			<h4>{{"Discover upcoming events." | t}}</h4>
+
+			<a href="/events" class="default__btn">{{"See All Events" | t}}</a>
+		</div>
+	</div>
+
+	<div class="events__block-cards-wrapper">
+		{% for row in rows %}
+			{% set title = row.content['#row']._entity.title.value %}
+			{% set startDate = row.content['#row']._entity.field_date.start_date %}
+			{% set endDate = row.content['#row']._entity.field_date.end_date %}
+			{% set location = row.content['#row']._entity.field_location.value %}
+			{% set index = loop.index - 1 %}
+  			{% set date_recr = row.content['#view'].result %}
+
+			<div class="events__block-cards">
+				<div class="events__block-date">
+					{% if date_recr[index] %}
+						<p>{{ date_recr[index].date_recur__node__field_date_node_field_data_field_date_valu| date('j M Y') }}</p>
+					{% endif %}
+				</div>
+
+				<h4>{{title}}</h4>
+				{% if startDate %}
+					{% if endDate %}
+						<p class="events__block-time"><span>{{startDate | date("g:i A")}} - {{endDate | date("g:i A")}}</span></p>
+					{% else %}
+						<p class="events__block-time"><span>{{startDate | date("g:i A")}}</span></p>
+					{% endif %}
+				{% endif %}
+
+		{% if location %}
+			<p class="events__block-location"><span>{{location}}<span></p>
+		{% endif %}
+		
+			<a class="events__block-link default__btn" href="{{ path('entity.node.canonical', {'node': row.content['#row']._entity.nid.value}) }}">{{"More Details" | t}}</a>
+		</div>
+	{% endfor %}
+</div>
+
+<a href="/events" class="default__btn mobile">{{"See All Events" | t}}</a></div>

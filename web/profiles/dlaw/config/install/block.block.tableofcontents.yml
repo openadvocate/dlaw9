@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - toc_filter
+  theme:
+    - bootstrap_ui
+id: tableofcontents
+theme: bootstrap_ui
+region: hidden
+weight: -8
+provider: null
+plugin: toc_filter
+settings:
+  id: toc_filter
+  label: 'Table of contents'
+  label_display: visible
+  provider: toc_filter
+visibility: {  }

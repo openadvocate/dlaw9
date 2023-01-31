@@ -1,0 +1,8 @@
+name: DLAW Twig Extension
+type: module
+package: DLAW
+description: Custom Twig Extension.
+core_version_requirement: ^9
+version: "0.1.0"
+dependencies:
+  - twig_tweak:twig_tweak

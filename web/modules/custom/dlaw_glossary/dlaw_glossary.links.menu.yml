@@ -1,0 +1,6 @@
+dlaw_dashboard.settings.glossary:
+  title: Glossary
+  description: 'Glossary.'
+  route_name: dlaw_glossary.settings
+  parent: dlaw_dashboard.settings
+  # weight: 0

@@ -1,0 +1,6 @@
+name: DLAW Node
+type: module
+package: DLAW
+description: Features around node form and actions.
+core_version_requirement: ^9
+version: '0.1.0'

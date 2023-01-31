@@ -1,0 +1,410 @@
+<?php
+
+use Drupal\node\Entity\Node;
+
+/**
+ * @file
+ * Functions to support theming in the Tailwind CSS theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function bootstrap_ui_preprocess_region__footer_first(&$variables) {
+  $site_config = \Drupal::config('system.site');
+  $variables['site_name'] = $site_config->get('name');
+  $variables['site_slogan'] = $site_config->get('slogan');
+  $variables['facebook'] = \Drupal::state()->get('dlaw_social_media_links_facebook_url', '');
+  $variables['instagram'] = \Drupal::state()->get('dlaw_social_media_links_instagram_url', '');
+  $variables['twitter'] = \Drupal::state()->get('dlaw_social_media_links_twitter_url', '');
+  $variables['youtube'] = \Drupal::state()->get('dlaw_social_media_links_youtube_url', '');
+}
+
+
+/**
+ * Get the active theme.
+ *
+ * @return string
+ *   The name of the active theme.
+ */
+function bootstrap_ui_get_active_theme() {
+  return \Drupal::service('theme.manager')->getActiveTheme()->getName();
+}
+
+function bootstrap_ui_preprocess_field(&$variables, $hook) {
+  $element = $variables['element'];
+  if (isset($element['#field_name'])) {
+    if ($element['#field_name'] == 'field_hero_topics') {
+      foreach ($element['#items'] as $term) {
+        $tid = $term->target_id;
+        $child_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('topics', $tid, 1, TRUE);
+
+        $children = [];
+        foreach ($child_terms as $child_term) {
+        // Filter out unpublished terms.
+          if (empty($child_term->status->value)) {
+            continue;
+          }
+
+          $children[] = $child_term->toLink()->toString();
+
+          if (count($children) >= 6) {
+            break;
+          }
+        }
+
+        $variables['children'] = t(join(', ', $children));
+      }
+    }
+  }
+}
+
+
+function bootstrap_ui_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  // Get the type
+  $parentBundle = $paragraph->bundle();
+}
+
+function bootstrap_ui_preprocess_paragraph__column(&$variables) {
+  $entity = $variables['paragraph'];
+
+  if ($entity->get('field_body')->getValue()) {
+    $variables['content']['field_body'] = check_markup(
+      $entity->get('field_body')->getValue()[0]['value'],
+      'basic_html',
+      $entity->language()->getId()
+    );
+  }
+}
+
+function bootstrap_ui_preprocess_paragraph__topic(&$variables) {
+  $entity = $variables['paragraph'];
+
+  if ($entity->id()) {
+    if ($entity->get('field_topic_term')->getValue()) {
+
+      foreach ($entity->get('field_topic_term') as $term) {
+        $child_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('topics', $term->target_id, 1, TRUE);
+
+        $children = [];
+        foreach ($child_terms as $child_term) {
+        // Filter out unpublished terms.
+          if (empty($child_term->status->value)) {
+            continue;
+          }
+
+          $children[] = $child_term->toLink()->toString();
+
+          if (count($children) >= 4) {
+            break;
+          }
+        }
+
+        $variables['children'] = t(join(', ', $children));
+      }
+    }
+  }
+}
+
+function bootstrap_ui_preprocess_paragraph__banner_cta(&$variables) {
+  $entity = $variables['paragraph'];
+
+  if ($entity->get('field_banner_body')->getValue()) {
+    $variables['content']['field_banner_body'] = check_markup(
+      $entity->get('field_banner_body')->getValue()[0]['value'],
+      'basic_html',
+      $entity->language()->getId()
+    );
+  }
+}
+
+function bootstrap_ui_preprocess_paragraph__banner_image(&$variables) {
+  $entity = $variables['paragraph'];
+
+  if ($entity->get('field_banner_body')->getValue()) {
+    $variables['content']['field_banner_body'] = check_markup(
+      $entity->get('field_banner_body')->getValue()[0]['value'],
+      'basic_html',
+      $entity->language()->getId()
+    );
+  }
+}
+
+function bootstrap_ui_preprocess_paragraph__hero_topic_cards(&$variables) {
+  $entity = $variables['paragraph'];
+
+  if ($entity->get('field_hero_topics')->getValue()) {
+    foreach ($entity->get('field_hero_topics') as $term) {
+      $tid = $term->target_id;
+      $child_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('topics', $tid, 1, TRUE);
+
+      $children = [];
+      foreach ($child_terms as $child_term) {
+      // Filter out unpublished terms.
+        if (empty($child_term->status->value)) {
+          continue;
+        }
+
+        $children[] = $child_term->toLink()->toString();
+
+        if (count($children) >= 6) {
+          break;
+        }
+      }
+
+      $variables['children'] = t(join(', ', $children));
+    }
+  }
+}
+
+function bootstrap_ui_preprocess_paragraph__topic_cards(&$variables) {
+  $entity = $variables['paragraph'];
+
+  if ($entity->get('field_topic_cards_card')->getValue()) {
+    foreach ($entity->get('field_topic_cards_card') as $term) {
+      $tid = $term->target_id;
+      $child_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('topics', $tid, 1, TRUE);
+
+      $children = [];
+      foreach ($child_terms as $child_term) {
+      // Filter out unpublished terms.
+        if (empty($child_term->status->value)) {
+          continue;
+        }
+
+        $children[] = $child_term->toLink()->toString();
+
+        if (count($children) >= 6) {
+          break;
+        }
+      }
+
+      $variables['children'] = t(join(', ', $children));
+    }
+  }
+}
+
+function bootstrap_ui_preprocess_paragraph__topics(&$variables) {
+  $entity = $variables['paragraph'];
+
+  if ($entity->get('field_topics_body')->getValue()) {
+    $variables['content']['field_topics_body'] = check_markup(
+      $entity->get('field_topics_body')->getValue()[0]['value'],
+      'basic_html',
+      $entity->language()->getId()
+    );
+  }
+}
+
+function bootstrap_ui_preprocess_paragraph__accordion_row(&$variables) {
+  $entity = $variables['paragraph'];
+
+  if ($entity->get('field_accdin_body')->getValue()) {
+    $variables['content']['field_accdin_body'] = check_markup(
+      $entity->get('field_accdin_body')->getValue()[0]['value'],
+      'basic_html',
+      $entity->language()->getId()
+    );
+  }
+}
+
+/**
+ * @param $variables
+ */
+function bootstrap_ui_preprocess_html(&$variables) {
+    $theme_palette = \Drupal::state()->get('dlaw_appearance_theme_palette', '');
+
+    switch ($theme_palette) {
+      case "red":
+        $variables['attributes']['class'][] = 'red';
+        break;
+      case "blue":
+        $variables['attributes']['class'][] = 'blue';
+        break;
+      case "maroon":
+        $variables['attributes']['class'][] = 'maroon';
+        break;
+      case "burntorange":
+        $variables['attributes']['class'][] = 'burnt_orange';
+        break;
+      case "orange":
+        $variables['attributes']['class'][] = 'orange';
+        break;
+      case "mustardyellow":
+        $variables['attributes']['class'][] = 'mustard_yellow';
+        break;
+      case "magenta":
+        $variables['attributes']['class'][] = 'magenta';
+        break;
+      case "indigo":
+        $variables['attributes']['class'][] = 'indigo';
+        break;
+      case "purple":
+        $variables['attributes']['class'][] = 'purple';
+        break;
+      case "violet":
+        $variables['attributes']['class'][] = 'violet';
+        break;
+      case "navy":
+        $variables['attributes']['class'][] = 'navy';
+        break;
+      case "royalblue":
+        $variables['attributes']['class'][] = 'royal_blue';
+        break;
+      case "skyblue":
+        $variables['attributes']['class'][] = 'sky_blue';
+        break;
+      case "darkteal":
+        $variables['attributes']['class'][] = 'dark_teal';
+        break;
+      case "green":
+        $variables['attributes']['class'][] = 'green';
+        break;
+      case "olive":
+        $variables['attributes']['class'][] = 'olive';
+        break;
+      default:
+        $variables['attributes']['class'][] = 'black';
+        break;
+    }
+    $site_config = \Drupal::config('system.site');
+    $variables['site_name'] = $site_config->get('name');
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function bootstrap_ui_preprocess_node(&$vars) {
+  if (!$node = $vars['node'] ?? NULL) return;
+
+  // Add "updated date" at the bottom of Pages.
+  // See dlaw_dashboard/src/Form/SiteInfoForm.php (/admin/dashboard/site-information).
+  if ($node->getType() == 'page' and \Drupal::state()->get('dlaw.site_info.display_updated', FALSE)) {
+    $timestamp = date('Y-m-d', $node->getChangedTime());
+    $formatted = date('F d, Y', $node->getChangedTime());
+
+    $vars['content']['display_updated'] = [
+      '#markup' => "<div class=\"last-updated-date\">Last updated on <time datetime=\"{$timestamp}\">{$formatted}</time>.</div>",
+      '#weight' => 100,
+    ];
+  }
+
+  if ($node->getType() == 'contact') {
+    $vars['contact_page_title'][] = $node->getTitle();
+  }
+}
+
+function bootstrap_ui_preprocess_breadcrumb(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (is_numeric($node)) {
+    $node = Node::load($node);
+  }
+
+  if (is_object($node)) {
+    if ($node->getTitle()) {
+      $variables['current_title'][] = $node->getTitle();
+    }
+
+    if (($node->hasField('field_topics')) && $node->get('field_topics')->getValue()) {
+      // topics category taxonomy
+      $tid = $node->get('field_topics')->getValue()[0]["target_id"];
+      $topic_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+      if ($topic_term) {
+        $topic_name = $topic_term->label();
+        $variables['parent_topic_id'][] = $tid;
+        $variables['parent_topic_label'][] = $topic_name;
+
+        // topics category parent taxonomy item
+        $parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($tid);
+        $parent = reset($parent);
+
+        if ($parent) {
+          $parent_tid = $parent->id();
+          $topic_parent_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($parent_tid);
+          $topic_parent_name = $topic_parent_term->label();
+
+          $variables['parent_topic_parent'][] = $parent_tid;
+          $variables['parent_topic_parent_label'][] = $topic_parent_name;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_unformatted().
+ */
+function bootstrap_ui_preprocess_views_view_unformatted__page_topics(&$vars) {
+  foreach ($vars['rows'] as &$row) {
+    $term = $row['content']['#row']->_entity;
+    $child_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('topics', $term->id(), 1, TRUE);
+
+    $children = [];
+    foreach ($child_terms as $child_term) {
+      // Filter out unpublished terms.
+      if (empty($child_term->status->value)) {
+        continue;
+      }
+
+      $child_term->name->value = str_replace('/', ' / ', $child_term->name->value);
+
+      $children[] = $child_term->toLink()->toString();
+
+      if (count($children) >= 6) {
+        break;
+      }
+    }
+
+    $row['children'] = t(join(', ', $children));
+    $row['view_all'] = $term->toLink('View All');
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_unformatted().
+ */
+function bootstrap_ui_preprocess_views_view_unformatted__block_topics(&$vars) {
+  foreach ($vars['rows'] as &$row) {
+    $term = $row['content']['#row']->_entity;
+    $child_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('topics', $term->id(), 1, TRUE);
+
+    $children = [];
+    foreach ($child_terms as $child_term) {
+      // Filter out unpublished terms.
+      if (empty($child_term->status->value)) {
+        continue;
+      }
+
+      $child_term->name->value = str_replace('/', ' / ', $child_term->name->value);
+
+      $children[] = $child_term->toLink()->toString();
+
+      if (count($children) >= 4) {
+        break;
+      }
+    }
+
+    $row['children'] = t(join(', ', $children));
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block templates.
+ */
+function bootstrap_ui_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'system_branding_block' ) {
+    $variables['site_logo'] = '';
+    if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
+      $variables['site_logo'] = $variables['content']['site_logo']['#uri'];
+    }
+    else {
+      $config = \Drupal::config('system.theme.global');
+      $logo = $config->get('logo.path');
+      $image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($logo);
+      $variables['site_logo'] = $image_url ?: '';
+    }
+  }
+}

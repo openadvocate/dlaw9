@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: featured_image
+label: 'Featured Image (774x376)'
+effects:
+  c8ee129d-0d7e-4dcf-bd37-8eddd467101c:
+    uuid: c8ee129d-0d7e-4dcf-bd37-8eddd467101c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 774
+      height: 376
+      anchor: center-center

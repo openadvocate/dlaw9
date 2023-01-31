@@ -1,0 +1,101 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lp_components
+    - node.type.landing_page
+    - paragraphs.paragraphs_type.banner_cta
+    - paragraphs.paragraphs_type.banner_image
+    - paragraphs.paragraphs_type.events_block
+    - paragraphs.paragraphs_type.hero
+    - paragraphs.paragraphs_type.hero_topic_cards
+    - paragraphs.paragraphs_type.image_with_text
+    - paragraphs.paragraphs_type.news_block
+    - paragraphs.paragraphs_type.supporters
+    - paragraphs.paragraphs_type.topic_cards
+    - paragraphs.paragraphs_type.topics
+    - paragraphs.paragraphs_type.twitter_feed_block
+  module:
+    - entity_reference_revisions
+id: node.landing_page.field_lp_components
+field_name: field_lp_components
+entity_type: node
+bundle: landing_page
+label: Components
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      banner_cta: banner_cta
+      banner_image: banner_image
+      image_with_text: image_with_text
+      events_block: events_block
+      news_block: news_block
+      supporters: supporters
+      hero: hero
+      hero_topic_cards: hero_topic_cards
+      topics: topics
+      twitter_feed_block: twitter_feed_block
+      topic_cards: topic_cards
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_row:
+        weight: 20
+        enabled: false
+      accordions:
+        weight: 19
+        enabled: false
+      banner_cta:
+        weight: 4
+        enabled: true
+      banner_image:
+        weight: 7
+        enabled: true
+      cta_card:
+        weight: 23
+        enabled: false
+      events_block:
+        weight: 12
+        enabled: true
+      hero:
+        weight: 19
+        enabled: true
+      hero_topic_cards:
+        weight: 22
+        enabled: true
+      image_with_text:
+        weight: 8
+        enabled: true
+      news_block:
+        weight: 12
+        enabled: true
+      page_cta_cards:
+        weight: 29
+        enabled: false
+      supporters:
+        weight: 18
+        enabled: true
+      testimonial:
+        weight: 19
+        enabled: false
+      testimonials:
+        weight: 16
+        enabled: false
+      topic:
+        weight: 28
+        enabled: false
+      topic_cards:
+        weight: 31
+        enabled: true
+      topics:
+        weight: 22
+        enabled: true
+      twitter_feed_block:
+        weight: 24
+        enabled: true
+field_type: entity_reference_revisions

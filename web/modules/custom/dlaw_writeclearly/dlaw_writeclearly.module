@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Module file for dlaw_writeclearly module.
+ */
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function dlaw_writeclearly_page_attachments_alter(array &$attachments) {
+  if (\Drupal::currentUser()->hasPermission('access content overview')) {
+    if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
+      if (\Drupal::routeMatch()->getParameter('node')->getType() == 'page') {
+        $attachments['#attached']['library'][] = 'dlaw_writeclearly/dlaw_writeclearly';
+      }
+    }
+  }
+}

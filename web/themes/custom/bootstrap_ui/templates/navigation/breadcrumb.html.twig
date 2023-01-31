@@ -1,0 +1,62 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ */
+#}
+
+{% if breadcrumb and not parent_topic_id[0] %}
+  <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+    <ul>
+    {% for item in breadcrumb %}
+      {% if loop.index0 > 2 or loop.index0 < 2 %}
+        <li>
+          {% if item.url %}
+            <a href="{{ item.url }}">{{ item.text }}</a>
+          {% else %}
+            {{ item.text }}
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  </nav>
+{% endif %}
+
+{% if parent_topic_id[0] and not parent_topic_parent[0] %}
+  <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+    <ul>
+      <li>
+        <a href="/topics">{{ 'Topics' | t }}</a>
+      </li>
+      <li>
+        <a href="{{ parent_topic_id[0] ? path('entity.taxonomy_term.canonical', {'taxonomy_term': parent_topic_id[0]}) : '#' }}">{{ parent_topic_label[0] }}</a>
+      </li>
+      <li>
+        {{ current_title[0] }}
+      </li>
+    </ul>
+  </nav>
+{% endif %}
+
+{% if parent_topic_id[0] and parent_topic_parent[0] %}
+  <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+    <ul>
+      <li>
+        <a href="/topics">{{ 'Topics' | t }}</a>
+      </li>
+      <li>
+        <a href="{{ parent_topic_parent[0] ? path('entity.taxonomy_term.canonical', {'taxonomy_term': parent_topic_parent[0]}) : '#' }}">{{ parent_topic_parent_label[0] }}</a>
+      </li>
+      <li>
+        <a href="{{ parent_topic_id[0] ? path('entity.taxonomy_term.canonical', {'taxonomy_term': parent_topic_id[0]}) : '#' }}">{{ parent_topic_label[0] }}</a>
+      </li>
+      <li>
+        {{ current_title[0] }}
+      </li>
+    </ul>
+  </nav>
+{% endif %}

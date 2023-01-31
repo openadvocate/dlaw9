@@ -1,0 +1,53 @@
+.page__cards-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.page__cards-row {
+  @include cards;
+  height: auto !important;
+  margin-bottom: 3.125rem; //50px
+  padding: 2rem 2.5rem !important; //32px 40px
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+    width: 46%;
+  }
+
+  @include media-breakpoint-up(xl) {
+    width: 362px;
+  }
+
+  &:nth-child(even) {
+    @include media-breakpoint-up(md) {
+      margin-left: 3.125rem; //50px
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.page__cards-title {
+  h4 {
+    margin-bottom: 1.125rem; //18px
+  }
+}
+
+.page__cards-body {
+  @extend .body__medium;
+  margin-bottom: 1.125rem; //18px
+}
+
+.page__cards-link {
+  // font-size: 1.5rem; //24px
+  font-size: clamp(1.5rem, calc(0vw + 1.5rem), 1.5rem);
+  margin: 0;
+}

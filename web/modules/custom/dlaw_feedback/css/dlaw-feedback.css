@@ -1,0 +1,16 @@
+.field--name-field-feedback,
+.form-item-field-why-unhelpful:first-child,
+#comment-form .text-format-wrapper,
+#comment-form #edit-comment-body-0-format-help-about,
+#comment-form .filter-guidelines-item,
+#comment-form .button--primary {
+  display: none;
+}
+
+.vote-form .rating-label:hover {
+  cursor: pointer;
+}
+
+.vote-form .rating-label.rate-voted {
+  background-color: #eeb;
+}

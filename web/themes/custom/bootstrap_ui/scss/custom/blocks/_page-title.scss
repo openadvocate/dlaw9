@@ -1,0 +1,9 @@
+.block-page-title-block {
+  h1 {
+    margin: 0 auto;
+
+    @include media-breakpoint-up(xl) {
+      max-width: $maxWidth;
+    }
+  }
+}

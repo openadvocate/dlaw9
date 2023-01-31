@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - rate
+id: fivestar
+label: 'Five star'
+value_type: points
+description: 'A simple 1-5 star rating.'
